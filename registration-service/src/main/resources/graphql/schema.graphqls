@@ -1,0 +1,37 @@
+type Query {
+    carsList : [Car]
+    carById (id : Int) : Car
+}
+
+type Car {
+    id: Int,
+    registartionNumber : Int,
+    power : Int,
+    model :Int,
+    owner : Owner
+}
+
+type Owner {
+    id: Int,
+    name : String,
+    date : Float,
+    mail :String,
+}
+
+type Mutation{
+    addCar(car : CarDTO ) : Car
+}
+
+input CarDTO{
+    registartionNumber : Int,
+    power : Int,
+    model :Int,
+    owner : OwnerDTO
+}
+
+input OwnerDTO {
+    name : String,
+    date : Float,
+    mail :String,
+}
+
