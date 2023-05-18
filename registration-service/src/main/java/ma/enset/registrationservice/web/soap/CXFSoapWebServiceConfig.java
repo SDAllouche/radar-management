@@ -1,7 +1,5 @@
 package ma.enset.registrationservice.web.soap;
 
-import jakarta.annotation.Resource;
-import lombok.AllArgsConstructor;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@AllArgsConstructor
 public class CXFSoapWebServiceConfig {
 
     @Autowired
