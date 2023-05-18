@@ -19,8 +19,8 @@ message Owner {
 
 service CarGrpcService {
   rpc getCar(GetCarRequest) returns (GetCarResponse);
-  rpc getListCustomers(GetAllCarsRequest) returns ( GetAllCarsResponse);
-  rpc saveCustomer(SaveCarRequest) returns (SaveCarResponse);
+  rpc getListCars(GetAllCarsRequest) returns ( GetAllCarsResponse);
+  rpc saveCar(SaveCarRequest) returns (SaveCarResponse);
 }
 message GetCarRequest{
   int64 id=1;
