@@ -89,11 +89,11 @@
             <version>3.22.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.grpc/grpc-netty-shaded -->
-        <!--<dependency>
+        <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.53.0</version>
-        </dependency>-->
+            <version>1.42.2</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/io.grpc/grpc-protobuf -->
         <dependency>
             <groupId>io.grpc</groupId>
