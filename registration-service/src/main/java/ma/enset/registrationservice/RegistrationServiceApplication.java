@@ -22,9 +22,10 @@ public class RegistrationServiceApplication {
     CommandLineRunner start(CarRepository carRepository, OwnerRepository ownerRepository){
         return args -> {
             for (int i=0;i<10 ; i++) {
+                String name="Owner"+new Random().nextInt(100);
                 Owner owner= Owner.builder()
-                        .name("Owner"+new Random().nextInt(100))
-                        .mail("email@gmail.com")
+                        .name(name)
+                        .mail(name+"@gmail.com")
                         .date(new Date())
                         .build();
 

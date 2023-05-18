@@ -1,24 +1,29 @@
 package ma.enset.registrationservice.web;
 
+import ma.enset.registrationservice.dto.CarResponseDTO;
 import ma.enset.registrationservice.entities.Car;
 import ma.enset.registrationservice.entities.Owner;
 import ma.enset.registrationservice.repositories.CarRepository;
 import ma.enset.registrationservice.repositories.OwnerRepository;
+import ma.enset.registrationservice.service.RegistrationServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/rest-api")
 public class RegistrationRestController {
 
     private CarRepository carRepository;
+
+    private RegistrationServiceImpl registrationService;
     private OwnerRepository ownerRepository;
 
 
-    public RegistrationRestController(CarRepository carRepository, OwnerRepository ownerRepository) {
+    public RegistrationRestController(CarRepository carRepository, RegistrationServiceImpl registrationService, OwnerRepository ownerRepository) {
         this.carRepository = carRepository;
+        this.registrationService = registrationService;
 
         this.ownerRepository = ownerRepository;
     }
@@ -29,29 +34,10 @@ public class RegistrationRestController {
     }
 
     @GetMapping("/cars/{id}")
-    public Car CarById(@PathVariable long id){
-        return carRepository.findById(id).orElseThrow(()-> new RuntimeException(String.format("Account %s not found",id)));
+    public CarResponseDTO CarById(@PathVariable long id){
+        return registrationService.getCar(id);
     }
 
-    @PostMapping("/cars")
-    public Car saveCustomer(@RequestBody Car car){
-        return carRepository.save(car);
-    }
-
-    @PutMapping("/cars/{id}")
-    public Car update(@RequestBody Car car,@PathVariable long id){
-        Car car1=carRepository.findById(id).orElseThrow();
-        car1.setRegistartionNumber(car.getRegistartionNumber());
-        car1.setPower(car.getPower());
-        car1.setModel(car.getModel());
-        car1.setOwner(car.getOwner());
-        return carRepository.save(car1);
-    }
-
-    @DeleteMapping("/cars/{id}")
-    public void delete(@PathVariable long id){
-        carRepository.deleteById(id);
-    }
 
     @GetMapping("/owners")
     public List<Owner> Owners(){
@@ -63,23 +49,5 @@ public class RegistrationRestController {
         return ownerRepository.findById(id).orElseThrow(()-> new RuntimeException(String.format("Owner %s not found",id)));
     }
 
-    @PostMapping("/owners")
-    public Owner saveOwner(@RequestBody Owner owner){
-        return ownerRepository.save(owner);
-    }
-
-    @PutMapping("/owners/{id}")
-    public Owner updateOwner(@RequestBody Owner owner,@PathVariable long id){
-        Owner owner1=ownerRepository.findById(id).orElseThrow();
-        owner1.setName(owner.getName());
-        owner1.setDate(new Date());
-        owner1.setMail(owner.getMail());
-        return ownerRepository.save(owner1);
-    }
-
-    @DeleteMapping("/owners/{id}")
-    public void deleteOwner(@PathVariable long id){
-        ownerRepository.deleteById(id);
-    }
 
 }
