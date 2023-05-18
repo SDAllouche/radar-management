@@ -1,4 +1,4 @@
-package ma.enset.registrationservice.web;
+package ma.enset.registrationservice.web.rest;
 
 import ma.enset.registrationservice.dto.CarResponseDTO;
 import ma.enset.registrationservice.entities.Car;
@@ -29,8 +29,8 @@ public class RegistrationRestController {
     }
 
     @GetMapping("/cars")
-    public List<Car> Cars(){
-        return carRepository.findAll();
+    public List<CarResponseDTO> Cars(){
+        return registrationService.getAllCars();
     }
 
     @GetMapping("/cars/{id}")

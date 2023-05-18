@@ -10,6 +10,7 @@ import ma.enset.registrationservice.repositories.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -32,7 +33,13 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public List<CarResponseDTO> getAllCars() {
-        return null;
+        List<CarResponseDTO> carResponseDTOS=new ArrayList<>();
+        List<Car> cars=carRepository.findAll();
+        cars.forEach(c->{
+            CarResponseDTO carResponseDTO=carMapper.fromCar(c);
+            carResponseDTOS.add(carResponseDTO);
+        });
+        return carResponseDTOS;
     }
 
     @Override
