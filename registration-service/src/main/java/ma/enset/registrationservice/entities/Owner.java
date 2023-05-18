@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Owner {
     private String name;
     private Date date;
     private String mail;
-    @OneToMany
-    private Collection<Car> cars;
+    @OneToMany(mappedBy = "owner")
+    private List<Car> cars;
 
 }

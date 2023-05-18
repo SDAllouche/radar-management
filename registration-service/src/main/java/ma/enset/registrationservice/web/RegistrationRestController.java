@@ -1,9 +1,9 @@
 package ma.enset.registrationservice.web;
 
-import ma.enset.registration.entities.Car;
-import ma.enset.registration.entities.Owner;
-import ma.enset.registration.repositories.CarRepository;
-import ma.enset.registration.repositories.OwnerRepository;
+import ma.enset.registrationservice.entities.Car;
+import ma.enset.registrationservice.entities.Owner;
+import ma.enset.registrationservice.repositories.CarRepository;
+import ma.enset.registrationservice.repositories.OwnerRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;

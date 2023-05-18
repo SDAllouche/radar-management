@@ -1,7 +1,8 @@
 package ma.enset.registrationservice.repositories;
 
 
-import ma.enset.registration.entities.Owner;
+
+import ma.enset.registrationservice.entities.Owner;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

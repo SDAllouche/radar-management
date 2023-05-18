@@ -2,7 +2,7 @@ package ma.enset.registrationservice.repositories;
 
 
 
-import ma.enset.registration.entities.Car;
+import ma.enset.registrationservice.entities.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

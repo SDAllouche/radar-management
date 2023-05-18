@@ -1,5 +1,6 @@
 package ma.enset.registrationservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +19,6 @@ public class Car {
     private int power;
     private int model;
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Owner owner;
 }
