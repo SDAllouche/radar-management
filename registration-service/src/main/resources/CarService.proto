@@ -1,0 +1,42 @@
+syntax ="proto3";
+import "google/protobuf/timestamp.proto";
+option java_package="ma.enset.registrationservice.web.grpc.stub";
+
+message Car {
+  int64 id=1;
+  string registartionNumber=2;
+  string power=3;
+  string model=4;
+  Owner owner=5;
+}
+
+message Owner {
+  int64 id=1;
+  string name=2;
+  google.protobuf.Timestamp date=3;
+  string mail=4;
+}
+
+service CarGrpcService {
+  rpc getCar(GetCarRequest) returns (GetCarResponse);
+  rpc getListCustomers(GetAllCarsRequest) returns ( GetAllCarsResponse);
+  rpc saveCustomer(SaveCarRequest) returns (SaveCarResponse);
+}
+message GetCarRequest{
+  int64 id=1;
+}
+message GetCarResponse{
+  Car car=1;
+}
+message GetAllCarsRequest {}
+message GetAllCarsResponse{
+  repeated  Car car = 1;
+}
+message SaveCarRequest {
+  string registartionNumber=1;
+  string power=2;
+  string model=3;
+}
+message SaveCarResponse {
+  Car car=1;
+}
