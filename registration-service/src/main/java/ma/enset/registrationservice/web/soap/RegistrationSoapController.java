@@ -10,7 +10,9 @@ import ma.enset.registrationservice.entities.Owner;
 import ma.enset.registrationservice.repositories.CarRepository;
 import ma.enset.registrationservice.repositories.OwnerRepository;
 import ma.enset.registrationservice.service.RegistrationServiceImpl;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

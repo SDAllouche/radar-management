@@ -15,8 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-@Service
-@Transactional
+@Service @Transactional
 public class RegistrationServiceImpl implements RegistrationService {
 
     private CarRepository carRepository;
