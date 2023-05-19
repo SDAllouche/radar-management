@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/conifg-service/pom.xml" />
         <option value="$PROJECT_DIR$/radar-service/violation-service/pom.xml" />
         <option value="$PROJECT_DIR$/violation-service/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway-service/pom.xml" />
       </list>
     </option>
   </component>

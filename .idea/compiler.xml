@@ -11,12 +11,14 @@
         <module name="radar-service" />
         <module name="conifg-service" />
         <module name="violation-service" />
+        <module name="gateway-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="conifg-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="radar-service" options="-parameters" />
       <module name="registration-service" options="-parameters" />
       <module name="violation-service" options="-parameters" />
