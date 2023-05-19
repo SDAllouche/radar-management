@@ -10,6 +10,7 @@
         <module name="registration-service" />
         <module name="radar-service" />
         <module name="conifg-service" />
+        <module name="violation-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +19,7 @@
       <module name="conifg-service" options="-parameters" />
       <module name="radar-service" options="-parameters" />
       <module name="registration-service" options="-parameters" />
+      <module name="violation-service" options="-parameters" />
     </option>
   </component>
 </project>

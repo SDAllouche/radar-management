@@ -19,11 +19,11 @@ public class RadarServiceApplication {
     @Bean
     CommandLineRunner start(RadarRepository radarRepository){
         return args -> {
-            int[] speeds={};
+            int[] speeds={40,50,60,70,80,90,100,110,120};
             for (int i=0;i<10 ; i++) {
 
                 Radar radar = Radar.builder()
-                        .maxSpeed(new Random().nextInt(40,125))
+                        .maxSpeed(speeds[new Random().nextInt(speeds.length)])
                         .longitude(new Random().nextDouble(-150,150))
                         .latitude(new Random().nextDouble(-150,150))
                         .build();
