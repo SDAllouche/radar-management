@@ -32,10 +32,12 @@ public class RegistrationServiceApplication {
 
                 Owner savedOwner=ownerRepository.save(owner);
 
+                String[] brands={"Volvo", "BMW", "Ford", "Mazda","Mercedes","Volkswagen","Peugeot"};
 
                 for (int j=0;j<new Random().nextInt(1,3) ; j++) {
                     Car car =Car.builder()
                             .registartionNumber(new Random().nextInt(10000,1000000))
+                            .brand(brands[new Random().nextInt(brands.length)])
                             .power(new Random().nextInt(200))
                             .model(new Random().nextInt(1980,2023))
                             .owner(savedOwner)

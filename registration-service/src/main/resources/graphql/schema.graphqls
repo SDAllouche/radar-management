@@ -6,32 +6,32 @@ type Query {
 type Car {
     id: Int,
     registartionNumber : Int,
+    brand : String,
     power : Int,
     model :Int,
-    owner : Owner
+    ownerResponseDTO : OwnerResponseDTO
 }
 
-type Owner {
+type OwnerResponseDTO {
     id: Int,
     name : String,
-    date : Float,
     mail :String,
 }
 
 type Mutation{
-    addCar(car : CarDTO ) : Car
+    addCar(carRequestDTO : CarRequestDTO ) : Car
 }
 
-input CarDTO{
+input CarRequestDTO{
     registartionNumber : Int,
+    brand : String,
     power : Int,
     model :Int,
-    owner : OwnerDTO
+    owner : OwnerRequestDTO
 }
 
-input OwnerDTO {
+input OwnerRequestDTO {
     name : String,
-    date : Float,
     mail :String,
 }
 

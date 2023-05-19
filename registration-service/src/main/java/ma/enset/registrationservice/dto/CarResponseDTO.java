@@ -17,6 +17,7 @@ public class CarResponseDTO {
 
     private long id;
     private int registartionNumber;
+    private String brand;
     private int power;
     private int model;
     private OwnerResponseDTO ownerResponseDTO;

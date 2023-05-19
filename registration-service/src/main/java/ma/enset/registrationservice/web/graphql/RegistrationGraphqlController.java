@@ -1,6 +1,8 @@
 package ma.enset.registrationservice.web.graphql;
 
 
+import ma.enset.registrationservice.dto.CarRequestDTO;
+import ma.enset.registrationservice.dto.CarResponseDTO;
 import ma.enset.registrationservice.entities.Car;
 import ma.enset.registrationservice.entities.Owner;
 import ma.enset.registrationservice.repositories.CarRepository;
@@ -30,19 +32,18 @@ public class RegistrationGraphqlController {
 
 
     @QueryMapping
-    public List<Car> carsList(){
-        return  carRepository.findAll();
+    public List<CarResponseDTO> carsList(){
+        return  registrationService.getAllCars();
     }
 
     @QueryMapping
-    public Car carById(@Argument int id){
-        return  carRepository.findById(Long.valueOf(id))
-                .orElseThrow(()->new RuntimeException(String.format("car not found")));
+    public CarResponseDTO carById(@Argument int id){
+        return  registrationService.getCar(id);
     }
 
     @MutationMapping
-    public Car addCar(@Argument Car car){
-        return carRepository.save(car);
+    public CarResponseDTO addCar(@Argument CarRequestDTO carRequestDTO){
+        return registrationService.addCar(carRequestDTO);
     }
 
     @QueryMapping

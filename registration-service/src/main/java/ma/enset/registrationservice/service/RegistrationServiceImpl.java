@@ -1,8 +1,10 @@
 package ma.enset.registrationservice.service;
 
 
+import ma.enset.registrationservice.dto.CarRequestDTO;
 import ma.enset.registrationservice.dto.CarResponseDTO;
 import ma.enset.registrationservice.entities.Car;
+import ma.enset.registrationservice.entities.Owner;
 import ma.enset.registrationservice.mappers.CarMapper;
 import ma.enset.registrationservice.mappers.OwnerMapper;
 import ma.enset.registrationservice.repositories.CarRepository;
@@ -45,6 +47,28 @@ public class RegistrationServiceImpl implements RegistrationService {
     public CarResponseDTO getCar(long id) {
         Car car = carRepository.findById(id).orElseThrow(()-> new RuntimeException(String.format("Car %s not found",id)));
         CarResponseDTO carResponseDTO=carMapper.fromCar(car);
+        return carResponseDTO;
+    }
+
+    @Override
+    public CarResponseDTO addCar(CarRequestDTO carRequestDTO) {
+        Owner owner=carRequestDTO.getOwner();
+        if (owner.getDate() == null) {
+            owner.setDate(new Date());
+        }
+        Owner savedOwner=ownerRepository.save(owner);
+        Car car=Car.builder()
+                .registartionNumber(carRequestDTO.getRegistartionNumber())
+                .brand(carRequestDTO.getBrand())
+                .power(carRequestDTO.getPower())
+                .model(carRequestDTO.getModel())
+                .owner(savedOwner)
+                .build();
+
+        Car saved = carRepository.save(car);
+
+        CarResponseDTO carResponseDTO=carMapper.fromCar(saved);
+
         return carResponseDTO;
     }
 }

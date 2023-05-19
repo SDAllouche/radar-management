@@ -1,0 +1,25 @@
+type Query {
+    radarsList : [Radar]
+    radarById (id : Int) : Radar
+}
+
+type Radar {
+    id: Int,
+    maxSpeed : String,
+    longitude : Float,
+    latitude :Float,
+}
+
+
+
+type Mutation{
+    addRadar(radarRequestDTO : RadarRequestDTO ) : Radar
+}
+
+input RadarRequestDTO{
+    maxSpeed : String,
+    longitude : Float,
+    latitude :Float,
+}
+
+

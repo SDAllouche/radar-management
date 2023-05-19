@@ -1,4 +1,4 @@
-package ma.enset.registrationservice.entities;
+package ma.enset.radarservice.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -11,15 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor @NoArgsConstructor
 @Data
 @Builder
-public class Car {
+public class Radar {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int registartionNumber;
-    private String brand;
-    private int power;
-    private int model;
-    @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Owner owner;
+    private int maxSpeed;
+    private double longitude ;
+    private double latitude;
 }

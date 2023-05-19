@@ -13,6 +13,7 @@ import ma.enset.registrationservice.entities.Owner;
 public class CarRequestDTO {
 
     private int registartionNumber;
+    private String brand;
     private int power;
     private int model;
     private Owner owner;
