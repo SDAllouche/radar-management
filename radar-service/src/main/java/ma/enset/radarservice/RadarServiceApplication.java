@@ -19,6 +19,7 @@ public class RadarServiceApplication {
     @Bean
     CommandLineRunner start(RadarRepository radarRepository){
         return args -> {
+            int[] speeds={};
             for (int i=0;i<10 ; i++) {
 
                 Radar radar = Radar.builder()
