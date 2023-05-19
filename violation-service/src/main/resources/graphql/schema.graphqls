@@ -1,0 +1,30 @@
+type Query {
+    violationsList : [Violation]
+    violationById (id : Int) : Violation
+}
+
+type Violation {
+    id: Int,
+    maxSpeed : Int,
+    radarID : Int
+    registrationNumber : Int
+    carSpeed : Int
+    penalty : Float
+    date : String
+}
+
+
+
+type Mutation{
+    addViolation(violationRequestDTO : ViolationRequestDTO ) : Violation
+}
+
+input ViolationRequestDTO{
+    maxSpeed : Int,
+    radarID : Int
+    registrationNumber : Int
+    carSpeed : Int
+    penalty : Float
+}
+
+

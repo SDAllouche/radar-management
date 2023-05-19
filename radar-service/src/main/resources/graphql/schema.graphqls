@@ -5,7 +5,7 @@ type Query {
 
 type Radar {
     id: Int,
-    maxSpeed : String,
+    maxSpeed : Int,
     longitude : Float,
     latitude :Float,
 }
@@ -17,7 +17,7 @@ type Mutation{
 }
 
 input RadarRequestDTO{
-    maxSpeed : String,
+    maxSpeed : Int,
     longitude : Float,
     latitude :Float,
 }
