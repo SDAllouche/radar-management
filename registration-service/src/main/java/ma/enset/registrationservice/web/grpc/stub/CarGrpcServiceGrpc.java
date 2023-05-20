@@ -59,6 +59,38 @@ public final class CarGrpcServiceGrpc {
      return getGetCarMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest,
+      ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse> getGetCarByRegistreMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getCarByRegistre",
+      requestType = ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.class,
+      responseType = ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest,
+      ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse> getGetCarByRegistreMethod() {
+    io.grpc.MethodDescriptor<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest, ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse> getGetCarByRegistreMethod;
+    if ((getGetCarByRegistreMethod = CarGrpcServiceGrpc.getGetCarByRegistreMethod) == null) {
+      synchronized (CarGrpcServiceGrpc.class) {
+        if ((getGetCarByRegistreMethod = CarGrpcServiceGrpc.getGetCarByRegistreMethod) == null) {
+          CarGrpcServiceGrpc.getGetCarByRegistreMethod = getGetCarByRegistreMethod = 
+              io.grpc.MethodDescriptor.<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest, ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "CarGrpcService", "getCarByRegistre"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new CarGrpcServiceMethodDescriptorSupplier("getCarByRegistre"))
+                  .build();
+          }
+        }
+     }
+     return getGetCarByRegistreMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsRequest,
       ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsResponse> getGetListCarsMethod;
 
@@ -159,6 +191,13 @@ public final class CarGrpcServiceGrpc {
 
     /**
      */
+    public void getCarByRegistre(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest request,
+        io.grpc.stub.StreamObserver<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetCarByRegistreMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getListCars(ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsRequest request,
         io.grpc.stub.StreamObserver<ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetListCarsMethod(), responseObserver);
@@ -180,6 +219,13 @@ public final class CarGrpcServiceGrpc {
                 ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRequest,
                 ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse>(
                   this, METHODID_GET_CAR)))
+          .addMethod(
+            getGetCarByRegistreMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest,
+                ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse>(
+                  this, METHODID_GET_CAR_BY_REGISTRE)))
           .addMethod(
             getGetListCarsMethod(),
             asyncUnaryCall(
@@ -226,6 +272,14 @@ public final class CarGrpcServiceGrpc {
 
     /**
      */
+    public void getCarByRegistre(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest request,
+        io.grpc.stub.StreamObserver<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetCarByRegistreMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getListCars(ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsRequest request,
         io.grpc.stub.StreamObserver<ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsResponse> responseObserver) {
       asyncUnaryCall(
@@ -264,6 +318,13 @@ public final class CarGrpcServiceGrpc {
     public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse getCar(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetCarMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse getCarByRegistre(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetCarByRegistreMethod(), getCallOptions(), request);
     }
 
     /**
@@ -309,6 +370,14 @@ public final class CarGrpcServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse> getCarByRegistre(
+        ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetCarByRegistreMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsResponse> getListCars(
         ma.enset.registrationservice.web.grpc.stub.CarService.GetAllCarsRequest request) {
       return futureUnaryCall(
@@ -325,8 +394,9 @@ public final class CarGrpcServiceGrpc {
   }
 
   private static final int METHODID_GET_CAR = 0;
-  private static final int METHODID_GET_LIST_CARS = 1;
-  private static final int METHODID_SAVE_CAR = 2;
+  private static final int METHODID_GET_CAR_BY_REGISTRE = 1;
+  private static final int METHODID_GET_LIST_CARS = 2;
+  private static final int METHODID_SAVE_CAR = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -347,6 +417,10 @@ public final class CarGrpcServiceGrpc {
       switch (methodId) {
         case METHODID_GET_CAR:
           serviceImpl.getCar((ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRequest) request,
+              (io.grpc.stub.StreamObserver<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse>) responseObserver);
+          break;
+        case METHODID_GET_CAR_BY_REGISTRE:
+          serviceImpl.getCarByRegistre((ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest) request,
               (io.grpc.stub.StreamObserver<ma.enset.registrationservice.web.grpc.stub.CarService.GetCarResponse>) responseObserver);
           break;
         case METHODID_GET_LIST_CARS:
@@ -419,6 +493,7 @@ public final class CarGrpcServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CarGrpcServiceFileDescriptorSupplier())
               .addMethod(getGetCarMethod())
+              .addMethod(getGetCarByRegistreMethod())
               .addMethod(getGetListCarsMethod())
               .addMethod(getSaveCarMethod())
               .build();

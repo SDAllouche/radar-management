@@ -1,7 +1,6 @@
 package ma.enset.registrationservice.mappers;
 
 
-import com.google.protobuf.Timestamp;
 import ma.enset.registrationservice.dto.CarResponseDTO;
 import ma.enset.registrationservice.dto.OwnerResponseDTO;
 import ma.enset.registrationservice.entities.Car;
@@ -9,6 +8,8 @@ import ma.enset.registrationservice.web.grpc.stub.CarService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
+
+import java.sql.Timestamp;
 
 @Component
 public class CarMapper {
@@ -32,13 +33,14 @@ public class CarMapper {
     public CarService.Car fromCarGrpc(Car car){
         CarService.Car savedCard= CarService.Car.newBuilder()
                 .setId(car.getId())
-                .setRegistartionNumber(String.valueOf(car.getRegistartionNumber()))
-                .setModel(String.valueOf(car.getModel()))
-                .setPower(String.valueOf(car.getPower()))
+                .setRegistartionNumber(car.getRegistartionNumber())
+                .setBrand(car.getBrand())
+                .setModel(car.getModel())
+                .setPower(car.getPower())
                 .setOwner(CarService.Owner.newBuilder()
                         .setId(car.getOwner().getId())
                         .setName(car.getOwner().getName())
-                        .setDate(Timestamp.newBuilder().setSeconds(car.getOwner().getDate().getTime()).build())
+                        .setDate(car.getOwner().getDate().toString())
                         .setMail(car.getOwner().getMail())
                         .build())
                 .build();

@@ -25,53 +25,47 @@ public final class CarService {
     long getId();
 
     /**
-     * <code>string registartionNumber = 2;</code>
+     * <code>int32 registartionNumber = 2;</code>
      * @return The registartionNumber.
      */
-    java.lang.String getRegistartionNumber();
-    /**
-     * <code>string registartionNumber = 2;</code>
-     * @return The bytes for registartionNumber.
-     */
-    com.google.protobuf.ByteString
-        getRegistartionNumberBytes();
+    int getRegistartionNumber();
 
     /**
-     * <code>string power = 3;</code>
+     * <code>string brand = 3;</code>
+     * @return The brand.
+     */
+    java.lang.String getBrand();
+    /**
+     * <code>string brand = 3;</code>
+     * @return The bytes for brand.
+     */
+    com.google.protobuf.ByteString
+        getBrandBytes();
+
+    /**
+     * <code>int32 power = 4;</code>
      * @return The power.
      */
-    java.lang.String getPower();
-    /**
-     * <code>string power = 3;</code>
-     * @return The bytes for power.
-     */
-    com.google.protobuf.ByteString
-        getPowerBytes();
+    int getPower();
 
     /**
-     * <code>string model = 4;</code>
+     * <code>int32 model = 5;</code>
      * @return The model.
      */
-    java.lang.String getModel();
-    /**
-     * <code>string model = 4;</code>
-     * @return The bytes for model.
-     */
-    com.google.protobuf.ByteString
-        getModelBytes();
+    int getModel();
 
     /**
-     * <code>.Owner owner = 5;</code>
+     * <code>.Owner owner = 6;</code>
      * @return Whether the owner field is set.
      */
     boolean hasOwner();
     /**
-     * <code>.Owner owner = 5;</code>
+     * <code>.Owner owner = 6;</code>
      * @return The owner.
      */
     ma.enset.registrationservice.web.grpc.stub.CarService.Owner getOwner();
     /**
-     * <code>.Owner owner = 5;</code>
+     * <code>.Owner owner = 6;</code>
      */
     ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder getOwnerOrBuilder();
   }
@@ -88,9 +82,7 @@ public final class CarService {
       super(builder);
     }
     private Car() {
-      registartionNumber_ = "";
-      power_ = "";
-      model_ = "";
+      brand_ = "";
     }
 
     @java.lang.Override
@@ -128,25 +120,28 @@ public final class CarService {
               id_ = input.readInt64();
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 16: {
 
-              registartionNumber_ = s;
+              registartionNumber_ = input.readInt32();
               break;
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              power_ = s;
+              brand_ = s;
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 32: {
 
-              model_ = s;
+              power_ = input.readInt32();
               break;
             }
-            case 42: {
+            case 40: {
+
+              model_ = input.readInt32();
+              break;
+            }
+            case 50: {
               ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder subBuilder = null;
               if (owner_ != null) {
                 subBuilder = owner_.toBuilder();
@@ -202,131 +197,89 @@ public final class CarService {
     }
 
     public static final int REGISTARTIONNUMBER_FIELD_NUMBER = 2;
-    private volatile java.lang.Object registartionNumber_;
+    private int registartionNumber_;
     /**
-     * <code>string registartionNumber = 2;</code>
+     * <code>int32 registartionNumber = 2;</code>
      * @return The registartionNumber.
      */
-    public java.lang.String getRegistartionNumber() {
-      java.lang.Object ref = registartionNumber_;
+    public int getRegistartionNumber() {
+      return registartionNumber_;
+    }
+
+    public static final int BRAND_FIELD_NUMBER = 3;
+    private volatile java.lang.Object brand_;
+    /**
+     * <code>string brand = 3;</code>
+     * @return The brand.
+     */
+    public java.lang.String getBrand() {
+      java.lang.Object ref = brand_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        registartionNumber_ = s;
+        brand_ = s;
         return s;
       }
     }
     /**
-     * <code>string registartionNumber = 2;</code>
-     * @return The bytes for registartionNumber.
+     * <code>string brand = 3;</code>
+     * @return The bytes for brand.
      */
     public com.google.protobuf.ByteString
-        getRegistartionNumberBytes() {
-      java.lang.Object ref = registartionNumber_;
+        getBrandBytes() {
+      java.lang.Object ref = brand_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        registartionNumber_ = b;
+        brand_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int POWER_FIELD_NUMBER = 3;
-    private volatile java.lang.Object power_;
+    public static final int POWER_FIELD_NUMBER = 4;
+    private int power_;
     /**
-     * <code>string power = 3;</code>
+     * <code>int32 power = 4;</code>
      * @return The power.
      */
-    public java.lang.String getPower() {
-      java.lang.Object ref = power_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        power_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string power = 3;</code>
-     * @return The bytes for power.
-     */
-    public com.google.protobuf.ByteString
-        getPowerBytes() {
-      java.lang.Object ref = power_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        power_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getPower() {
+      return power_;
     }
 
-    public static final int MODEL_FIELD_NUMBER = 4;
-    private volatile java.lang.Object model_;
+    public static final int MODEL_FIELD_NUMBER = 5;
+    private int model_;
     /**
-     * <code>string model = 4;</code>
+     * <code>int32 model = 5;</code>
      * @return The model.
      */
-    public java.lang.String getModel() {
-      java.lang.Object ref = model_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        model_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string model = 4;</code>
-     * @return The bytes for model.
-     */
-    public com.google.protobuf.ByteString
-        getModelBytes() {
-      java.lang.Object ref = model_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        model_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getModel() {
+      return model_;
     }
 
-    public static final int OWNER_FIELD_NUMBER = 5;
+    public static final int OWNER_FIELD_NUMBER = 6;
     private ma.enset.registrationservice.web.grpc.stub.CarService.Owner owner_;
     /**
-     * <code>.Owner owner = 5;</code>
+     * <code>.Owner owner = 6;</code>
      * @return Whether the owner field is set.
      */
     public boolean hasOwner() {
       return owner_ != null;
     }
     /**
-     * <code>.Owner owner = 5;</code>
+     * <code>.Owner owner = 6;</code>
      * @return The owner.
      */
     public ma.enset.registrationservice.web.grpc.stub.CarService.Owner getOwner() {
       return owner_ == null ? ma.enset.registrationservice.web.grpc.stub.CarService.Owner.getDefaultInstance() : owner_;
     }
     /**
-     * <code>.Owner owner = 5;</code>
+     * <code>.Owner owner = 6;</code>
      */
     public ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder getOwnerOrBuilder() {
       return getOwner();
@@ -349,17 +302,20 @@ public final class CarService {
       if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
-      if (!getRegistartionNumberBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, registartionNumber_);
+      if (registartionNumber_ != 0) {
+        output.writeInt32(2, registartionNumber_);
       }
-      if (!getPowerBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, power_);
+      if (!getBrandBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, brand_);
       }
-      if (!getModelBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, model_);
+      if (power_ != 0) {
+        output.writeInt32(4, power_);
+      }
+      if (model_ != 0) {
+        output.writeInt32(5, model_);
       }
       if (owner_ != null) {
-        output.writeMessage(5, getOwner());
+        output.writeMessage(6, getOwner());
       }
       unknownFields.writeTo(output);
     }
@@ -374,18 +330,24 @@ public final class CarService {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
       }
-      if (!getRegistartionNumberBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, registartionNumber_);
+      if (registartionNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, registartionNumber_);
       }
-      if (!getPowerBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, power_);
+      if (!getBrandBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, brand_);
       }
-      if (!getModelBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, model_);
+      if (power_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, power_);
+      }
+      if (model_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, model_);
       }
       if (owner_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getOwner());
+          .computeMessageSize(6, getOwner());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -404,12 +366,14 @@ public final class CarService {
 
       if (getId()
           != other.getId()) return false;
-      if (!getRegistartionNumber()
-          .equals(other.getRegistartionNumber())) return false;
-      if (!getPower()
-          .equals(other.getPower())) return false;
-      if (!getModel()
-          .equals(other.getModel())) return false;
+      if (getRegistartionNumber()
+          != other.getRegistartionNumber()) return false;
+      if (!getBrand()
+          .equals(other.getBrand())) return false;
+      if (getPower()
+          != other.getPower()) return false;
+      if (getModel()
+          != other.getModel()) return false;
       if (hasOwner() != other.hasOwner()) return false;
       if (hasOwner()) {
         if (!getOwner()
@@ -430,11 +394,13 @@ public final class CarService {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
       hash = (37 * hash) + REGISTARTIONNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegistartionNumber().hashCode();
+      hash = (53 * hash) + getRegistartionNumber();
+      hash = (37 * hash) + BRAND_FIELD_NUMBER;
+      hash = (53 * hash) + getBrand().hashCode();
       hash = (37 * hash) + POWER_FIELD_NUMBER;
-      hash = (53 * hash) + getPower().hashCode();
+      hash = (53 * hash) + getPower();
       hash = (37 * hash) + MODEL_FIELD_NUMBER;
-      hash = (53 * hash) + getModel().hashCode();
+      hash = (53 * hash) + getModel();
       if (hasOwner()) {
         hash = (37 * hash) + OWNER_FIELD_NUMBER;
         hash = (53 * hash) + getOwner().hashCode();
@@ -574,11 +540,13 @@ public final class CarService {
         super.clear();
         id_ = 0L;
 
-        registartionNumber_ = "";
+        registartionNumber_ = 0;
 
-        power_ = "";
+        brand_ = "";
 
-        model_ = "";
+        power_ = 0;
+
+        model_ = 0;
 
         if (ownerBuilder_ == null) {
           owner_ = null;
@@ -614,6 +582,7 @@ public final class CarService {
         ma.enset.registrationservice.web.grpc.stub.CarService.Car result = new ma.enset.registrationservice.web.grpc.stub.CarService.Car(this);
         result.id_ = id_;
         result.registartionNumber_ = registartionNumber_;
+        result.brand_ = brand_;
         result.power_ = power_;
         result.model_ = model_;
         if (ownerBuilder_ == null) {
@@ -672,17 +641,18 @@ public final class CarService {
         if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (!other.getRegistartionNumber().isEmpty()) {
-          registartionNumber_ = other.registartionNumber_;
+        if (other.getRegistartionNumber() != 0) {
+          setRegistartionNumber(other.getRegistartionNumber());
+        }
+        if (!other.getBrand().isEmpty()) {
+          brand_ = other.brand_;
           onChanged();
         }
-        if (!other.getPower().isEmpty()) {
-          power_ = other.power_;
-          onChanged();
+        if (other.getPower() != 0) {
+          setPower(other.getPower());
         }
-        if (!other.getModel().isEmpty()) {
-          model_ = other.model_;
-          onChanged();
+        if (other.getModel() != 0) {
+          setModel(other.getModel());
         }
         if (other.hasOwner()) {
           mergeOwner(other.getOwner());
@@ -746,230 +716,168 @@ public final class CarService {
         return this;
       }
 
-      private java.lang.Object registartionNumber_ = "";
+      private int registartionNumber_ ;
       /**
-       * <code>string registartionNumber = 2;</code>
+       * <code>int32 registartionNumber = 2;</code>
        * @return The registartionNumber.
        */
-      public java.lang.String getRegistartionNumber() {
-        java.lang.Object ref = registartionNumber_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          registartionNumber_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getRegistartionNumber() {
+        return registartionNumber_;
       }
       /**
-       * <code>string registartionNumber = 2;</code>
-       * @return The bytes for registartionNumber.
-       */
-      public com.google.protobuf.ByteString
-          getRegistartionNumberBytes() {
-        java.lang.Object ref = registartionNumber_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          registartionNumber_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string registartionNumber = 2;</code>
+       * <code>int32 registartionNumber = 2;</code>
        * @param value The registartionNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setRegistartionNumber(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setRegistartionNumber(int value) {
+        
         registartionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string registartionNumber = 2;</code>
+       * <code>int32 registartionNumber = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegistartionNumber() {
         
-        registartionNumber_ = getDefaultInstance().getRegistartionNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string registartionNumber = 2;</code>
-       * @param value The bytes for registartionNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegistartionNumberBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        registartionNumber_ = value;
+        registartionNumber_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object power_ = "";
+      private java.lang.Object brand_ = "";
       /**
-       * <code>string power = 3;</code>
-       * @return The power.
+       * <code>string brand = 3;</code>
+       * @return The brand.
        */
-      public java.lang.String getPower() {
-        java.lang.Object ref = power_;
+      public java.lang.String getBrand() {
+        java.lang.Object ref = brand_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          power_ = s;
+          brand_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string power = 3;</code>
-       * @return The bytes for power.
+       * <code>string brand = 3;</code>
+       * @return The bytes for brand.
        */
       public com.google.protobuf.ByteString
-          getPowerBytes() {
-        java.lang.Object ref = power_;
+          getBrandBytes() {
+        java.lang.Object ref = brand_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          power_ = b;
+          brand_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string power = 3;</code>
-       * @param value The power to set.
+       * <code>string brand = 3;</code>
+       * @param value The brand to set.
        * @return This builder for chaining.
        */
-      public Builder setPower(
+      public Builder setBrand(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
+        brand_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string brand = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBrand() {
+        
+        brand_ = getDefaultInstance().getBrand();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string brand = 3;</code>
+       * @param value The bytes for brand to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBrandBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        brand_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int power_ ;
+      /**
+       * <code>int32 power = 4;</code>
+       * @return The power.
+       */
+      public int getPower() {
+        return power_;
+      }
+      /**
+       * <code>int32 power = 4;</code>
+       * @param value The power to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPower(int value) {
+        
         power_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string power = 3;</code>
+       * <code>int32 power = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPower() {
         
-        power_ = getDefaultInstance().getPower();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string power = 3;</code>
-       * @param value The bytes for power to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPowerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        power_ = value;
+        power_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object model_ = "";
+      private int model_ ;
       /**
-       * <code>string model = 4;</code>
+       * <code>int32 model = 5;</code>
        * @return The model.
        */
-      public java.lang.String getModel() {
-        java.lang.Object ref = model_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          model_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getModel() {
+        return model_;
       }
       /**
-       * <code>string model = 4;</code>
-       * @return The bytes for model.
-       */
-      public com.google.protobuf.ByteString
-          getModelBytes() {
-        java.lang.Object ref = model_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          model_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string model = 4;</code>
+       * <code>int32 model = 5;</code>
        * @param value The model to set.
        * @return This builder for chaining.
        */
-      public Builder setModel(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setModel(int value) {
+        
         model_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string model = 4;</code>
+       * <code>int32 model = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearModel() {
         
-        model_ = getDefaultInstance().getModel();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string model = 4;</code>
-       * @param value The bytes for model to set.
-       * @return This builder for chaining.
-       */
-      public Builder setModelBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        model_ = value;
+        model_ = 0;
         onChanged();
         return this;
       }
@@ -978,14 +886,14 @@ public final class CarService {
       private com.google.protobuf.SingleFieldBuilderV3<
           ma.enset.registrationservice.web.grpc.stub.CarService.Owner, ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder, ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder> ownerBuilder_;
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        * @return Whether the owner field is set.
        */
       public boolean hasOwner() {
         return ownerBuilder_ != null || owner_ != null;
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        * @return The owner.
        */
       public ma.enset.registrationservice.web.grpc.stub.CarService.Owner getOwner() {
@@ -996,7 +904,7 @@ public final class CarService {
         }
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       public Builder setOwner(ma.enset.registrationservice.web.grpc.stub.CarService.Owner value) {
         if (ownerBuilder_ == null) {
@@ -1012,7 +920,7 @@ public final class CarService {
         return this;
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       public Builder setOwner(
           ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder builderForValue) {
@@ -1026,7 +934,7 @@ public final class CarService {
         return this;
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       public Builder mergeOwner(ma.enset.registrationservice.web.grpc.stub.CarService.Owner value) {
         if (ownerBuilder_ == null) {
@@ -1044,7 +952,7 @@ public final class CarService {
         return this;
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       public Builder clearOwner() {
         if (ownerBuilder_ == null) {
@@ -1058,7 +966,7 @@ public final class CarService {
         return this;
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       public ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder getOwnerBuilder() {
         
@@ -1066,7 +974,7 @@ public final class CarService {
         return getOwnerFieldBuilder().getBuilder();
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       public ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder getOwnerOrBuilder() {
         if (ownerBuilder_ != null) {
@@ -1077,7 +985,7 @@ public final class CarService {
         }
       }
       /**
-       * <code>.Owner owner = 5;</code>
+       * <code>.Owner owner = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           ma.enset.registrationservice.web.grpc.stub.CarService.Owner, ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder, ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder> 
@@ -1168,19 +1076,16 @@ public final class CarService {
         getNameBytes();
 
     /**
-     * <code>.google.protobuf.Timestamp date = 3;</code>
-     * @return Whether the date field is set.
-     */
-    boolean hasDate();
-    /**
-     * <code>.google.protobuf.Timestamp date = 3;</code>
+     * <code>string date = 3;</code>
      * @return The date.
      */
-    com.google.protobuf.Timestamp getDate();
+    java.lang.String getDate();
     /**
-     * <code>.google.protobuf.Timestamp date = 3;</code>
+     * <code>string date = 3;</code>
+     * @return The bytes for date.
      */
-    com.google.protobuf.TimestampOrBuilder getDateOrBuilder();
+    com.google.protobuf.ByteString
+        getDateBytes();
 
     /**
      * <code>string mail = 4;</code>
@@ -1208,6 +1113,7 @@ public final class CarService {
     }
     private Owner() {
       name_ = "";
+      date_ = "";
       mail_ = "";
     }
 
@@ -1253,16 +1159,9 @@ public final class CarService {
               break;
             }
             case 26: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (date_ != null) {
-                subBuilder = date_.toBuilder();
-              }
-              date_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(date_);
-                date_ = subBuilder.buildPartial();
-              }
+              java.lang.String s = input.readStringRequireUtf8();
 
+              date_ = s;
               break;
             }
             case 34: {
@@ -1350,26 +1249,39 @@ public final class CarService {
     }
 
     public static final int DATE_FIELD_NUMBER = 3;
-    private com.google.protobuf.Timestamp date_;
+    private volatile java.lang.Object date_;
     /**
-     * <code>.google.protobuf.Timestamp date = 3;</code>
-     * @return Whether the date field is set.
-     */
-    public boolean hasDate() {
-      return date_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp date = 3;</code>
+     * <code>string date = 3;</code>
      * @return The date.
      */
-    public com.google.protobuf.Timestamp getDate() {
-      return date_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : date_;
+    public java.lang.String getDate() {
+      java.lang.Object ref = date_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        date_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.google.protobuf.Timestamp date = 3;</code>
+     * <code>string date = 3;</code>
+     * @return The bytes for date.
      */
-    public com.google.protobuf.TimestampOrBuilder getDateOrBuilder() {
-      return getDate();
+    public com.google.protobuf.ByteString
+        getDateBytes() {
+      java.lang.Object ref = date_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        date_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int MAIL_FIELD_NUMBER = 4;
@@ -1428,8 +1340,8 @@ public final class CarService {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (date_ != null) {
-        output.writeMessage(3, getDate());
+      if (!getDateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, date_);
       }
       if (!getMailBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, mail_);
@@ -1450,9 +1362,8 @@ public final class CarService {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (date_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getDate());
+      if (!getDateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, date_);
       }
       if (!getMailBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, mail_);
@@ -1476,11 +1387,8 @@ public final class CarService {
           != other.getId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (hasDate() != other.hasDate()) return false;
-      if (hasDate()) {
-        if (!getDate()
-            .equals(other.getDate())) return false;
-      }
+      if (!getDate()
+          .equals(other.getDate())) return false;
       if (!getMail()
           .equals(other.getMail())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1499,10 +1407,8 @@ public final class CarService {
           getId());
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (hasDate()) {
-        hash = (37 * hash) + DATE_FIELD_NUMBER;
-        hash = (53 * hash) + getDate().hashCode();
-      }
+      hash = (37 * hash) + DATE_FIELD_NUMBER;
+      hash = (53 * hash) + getDate().hashCode();
       hash = (37 * hash) + MAIL_FIELD_NUMBER;
       hash = (53 * hash) + getMail().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -1642,12 +1548,8 @@ public final class CarService {
 
         name_ = "";
 
-        if (dateBuilder_ == null) {
-          date_ = null;
-        } else {
-          date_ = null;
-          dateBuilder_ = null;
-        }
+        date_ = "";
+
         mail_ = "";
 
         return this;
@@ -1678,11 +1580,7 @@ public final class CarService {
         ma.enset.registrationservice.web.grpc.stub.CarService.Owner result = new ma.enset.registrationservice.web.grpc.stub.CarService.Owner(this);
         result.id_ = id_;
         result.name_ = name_;
-        if (dateBuilder_ == null) {
-          result.date_ = date_;
-        } else {
-          result.date_ = dateBuilder_.build();
-        }
+        result.date_ = date_;
         result.mail_ = mail_;
         onBuilt();
         return result;
@@ -1739,8 +1637,9 @@ public final class CarService {
           name_ = other.name_;
           onChanged();
         }
-        if (other.hasDate()) {
-          mergeDate(other.getDate());
+        if (!other.getDate().isEmpty()) {
+          date_ = other.date_;
+          onChanged();
         }
         if (!other.getMail().isEmpty()) {
           mail_ = other.mail_;
@@ -1881,123 +1780,80 @@ public final class CarService {
         return this;
       }
 
-      private com.google.protobuf.Timestamp date_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> dateBuilder_;
+      private java.lang.Object date_ = "";
       /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
-       * @return Whether the date field is set.
-       */
-      public boolean hasDate() {
-        return dateBuilder_ != null || date_ != null;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
+       * <code>string date = 3;</code>
        * @return The date.
        */
-      public com.google.protobuf.Timestamp getDate() {
-        if (dateBuilder_ == null) {
-          return date_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : date_;
+      public java.lang.String getDate() {
+        java.lang.Object ref = date_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          date_ = s;
+          return s;
         } else {
-          return dateBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
+       * <code>string date = 3;</code>
+       * @return The bytes for date.
        */
-      public Builder setDate(com.google.protobuf.Timestamp value) {
-        if (dateBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          date_ = value;
-          onChanged();
+      public com.google.protobuf.ByteString
+          getDateBytes() {
+        java.lang.Object ref = date_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          date_ = b;
+          return b;
         } else {
-          dateBuilder_.setMessage(value);
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
+       * <code>string date = 3;</code>
+       * @param value The date to set.
+       * @return This builder for chaining.
        */
       public Builder setDate(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
-        if (dateBuilder_ == null) {
-          date_ = builderForValue.build();
-          onChanged();
-        } else {
-          dateBuilder_.setMessage(builderForValue.build());
-        }
-
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        date_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
-       */
-      public Builder mergeDate(com.google.protobuf.Timestamp value) {
-        if (dateBuilder_ == null) {
-          if (date_ != null) {
-            date_ =
-              com.google.protobuf.Timestamp.newBuilder(date_).mergeFrom(value).buildPartial();
-          } else {
-            date_ = value;
-          }
-          onChanged();
-        } else {
-          dateBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
+       * <code>string date = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDate() {
-        if (dateBuilder_ == null) {
-          date_ = null;
-          onChanged();
-        } else {
-          date_ = null;
-          dateBuilder_ = null;
-        }
-
+        
+        date_ = getDefaultInstance().getDate();
+        onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
+       * <code>string date = 3;</code>
+       * @param value The bytes for date to set.
+       * @return This builder for chaining.
        */
-      public com.google.protobuf.Timestamp.Builder getDateBuilder() {
+      public Builder setDateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         
+        date_ = value;
         onChanged();
-        return getDateFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
-       */
-      public com.google.protobuf.TimestampOrBuilder getDateOrBuilder() {
-        if (dateBuilder_ != null) {
-          return dateBuilder_.getMessageOrBuilder();
-        } else {
-          return date_ == null ?
-              com.google.protobuf.Timestamp.getDefaultInstance() : date_;
-        }
-      }
-      /**
-       * <code>.google.protobuf.Timestamp date = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-          getDateFieldBuilder() {
-        if (dateBuilder_ == null) {
-          dateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                  getDate(),
-                  getParentForChildren(),
-                  isClean());
-          date_ = null;
-        }
-        return dateBuilder_;
+        return this;
       }
 
       private java.lang.Object mail_ = "";
@@ -2610,6 +2466,492 @@ public final class CarService {
 
     @java.lang.Override
     public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetCarRegistreRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetCarRegistreRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 registartionNumber = 1;</code>
+     * @return The registartionNumber.
+     */
+    int getRegistartionNumber();
+  }
+  /**
+   * Protobuf type {@code GetCarRegistreRequest}
+   */
+  public  static final class GetCarRegistreRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetCarRegistreRequest)
+      GetCarRegistreRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetCarRegistreRequest.newBuilder() to construct.
+    private GetCarRegistreRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetCarRegistreRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetCarRegistreRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetCarRegistreRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              registartionNumber_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return ma.enset.registrationservice.web.grpc.stub.CarService.internal_static_GetCarRegistreRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return ma.enset.registrationservice.web.grpc.stub.CarService.internal_static_GetCarRegistreRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.class, ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.Builder.class);
+    }
+
+    public static final int REGISTARTIONNUMBER_FIELD_NUMBER = 1;
+    private int registartionNumber_;
+    /**
+     * <code>int32 registartionNumber = 1;</code>
+     * @return The registartionNumber.
+     */
+    public int getRegistartionNumber() {
+      return registartionNumber_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (registartionNumber_ != 0) {
+        output.writeInt32(1, registartionNumber_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (registartionNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, registartionNumber_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest)) {
+        return super.equals(obj);
+      }
+      ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest other = (ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest) obj;
+
+      if (getRegistartionNumber()
+          != other.getRegistartionNumber()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGISTARTIONNUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getRegistartionNumber();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetCarRegistreRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetCarRegistreRequest)
+        ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return ma.enset.registrationservice.web.grpc.stub.CarService.internal_static_GetCarRegistreRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return ma.enset.registrationservice.web.grpc.stub.CarService.internal_static_GetCarRegistreRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.class, ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.Builder.class);
+      }
+
+      // Construct using ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        registartionNumber_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return ma.enset.registrationservice.web.grpc.stub.CarService.internal_static_GetCarRegistreRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest getDefaultInstanceForType() {
+        return ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest build() {
+        ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest buildPartial() {
+        ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest result = new ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest(this);
+        result.registartionNumber_ = registartionNumber_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest) {
+          return mergeFrom((ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest other) {
+        if (other == ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.getDefaultInstance()) return this;
+        if (other.getRegistartionNumber() != 0) {
+          setRegistartionNumber(other.getRegistartionNumber());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int registartionNumber_ ;
+      /**
+       * <code>int32 registartionNumber = 1;</code>
+       * @return The registartionNumber.
+       */
+      public int getRegistartionNumber() {
+        return registartionNumber_;
+      }
+      /**
+       * <code>int32 registartionNumber = 1;</code>
+       * @param value The registartionNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegistartionNumber(int value) {
+        
+        registartionNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 registartionNumber = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegistartionNumber() {
+        
+        registartionNumber_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetCarRegistreRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetCarRegistreRequest)
+    private static final ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest();
+    }
+
+    public static ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetCarRegistreRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetCarRegistreRequest>() {
+      @java.lang.Override
+      public GetCarRegistreRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetCarRegistreRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetCarRegistreRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetCarRegistreRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4444,40 +4786,34 @@ public final class CarService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string registartionNumber = 1;</code>
+     * <code>int32 registartionNumber = 1;</code>
      * @return The registartionNumber.
      */
-    java.lang.String getRegistartionNumber();
-    /**
-     * <code>string registartionNumber = 1;</code>
-     * @return The bytes for registartionNumber.
-     */
-    com.google.protobuf.ByteString
-        getRegistartionNumberBytes();
+    int getRegistartionNumber();
 
     /**
-     * <code>string power = 2;</code>
+     * <code>string brand = 2;</code>
+     * @return The brand.
+     */
+    java.lang.String getBrand();
+    /**
+     * <code>string brand = 2;</code>
+     * @return The bytes for brand.
+     */
+    com.google.protobuf.ByteString
+        getBrandBytes();
+
+    /**
+     * <code>int32 power = 3;</code>
      * @return The power.
      */
-    java.lang.String getPower();
-    /**
-     * <code>string power = 2;</code>
-     * @return The bytes for power.
-     */
-    com.google.protobuf.ByteString
-        getPowerBytes();
+    int getPower();
 
     /**
-     * <code>string model = 3;</code>
+     * <code>int32 model = 4;</code>
      * @return The model.
      */
-    java.lang.String getModel();
-    /**
-     * <code>string model = 3;</code>
-     * @return The bytes for model.
-     */
-    com.google.protobuf.ByteString
-        getModelBytes();
+    int getModel();
   }
   /**
    * Protobuf type {@code SaveCarRequest}
@@ -4492,9 +4828,7 @@ public final class CarService {
       super(builder);
     }
     private SaveCarRequest() {
-      registartionNumber_ = "";
-      power_ = "";
-      model_ = "";
+      brand_ = "";
     }
 
     @java.lang.Override
@@ -4527,22 +4861,25 @@ public final class CarService {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              registartionNumber_ = s;
+              registartionNumber_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              power_ = s;
+              brand_ = s;
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
 
-              model_ = s;
+              power_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              model_ = input.readInt32();
               break;
             }
             default: {
@@ -4578,111 +4915,69 @@ public final class CarService {
     }
 
     public static final int REGISTARTIONNUMBER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object registartionNumber_;
+    private int registartionNumber_;
     /**
-     * <code>string registartionNumber = 1;</code>
+     * <code>int32 registartionNumber = 1;</code>
      * @return The registartionNumber.
      */
-    public java.lang.String getRegistartionNumber() {
-      java.lang.Object ref = registartionNumber_;
+    public int getRegistartionNumber() {
+      return registartionNumber_;
+    }
+
+    public static final int BRAND_FIELD_NUMBER = 2;
+    private volatile java.lang.Object brand_;
+    /**
+     * <code>string brand = 2;</code>
+     * @return The brand.
+     */
+    public java.lang.String getBrand() {
+      java.lang.Object ref = brand_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        registartionNumber_ = s;
+        brand_ = s;
         return s;
       }
     }
     /**
-     * <code>string registartionNumber = 1;</code>
-     * @return The bytes for registartionNumber.
+     * <code>string brand = 2;</code>
+     * @return The bytes for brand.
      */
     public com.google.protobuf.ByteString
-        getRegistartionNumberBytes() {
-      java.lang.Object ref = registartionNumber_;
+        getBrandBytes() {
+      java.lang.Object ref = brand_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        registartionNumber_ = b;
+        brand_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int POWER_FIELD_NUMBER = 2;
-    private volatile java.lang.Object power_;
+    public static final int POWER_FIELD_NUMBER = 3;
+    private int power_;
     /**
-     * <code>string power = 2;</code>
+     * <code>int32 power = 3;</code>
      * @return The power.
      */
-    public java.lang.String getPower() {
-      java.lang.Object ref = power_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        power_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string power = 2;</code>
-     * @return The bytes for power.
-     */
-    public com.google.protobuf.ByteString
-        getPowerBytes() {
-      java.lang.Object ref = power_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        power_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getPower() {
+      return power_;
     }
 
-    public static final int MODEL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object model_;
+    public static final int MODEL_FIELD_NUMBER = 4;
+    private int model_;
     /**
-     * <code>string model = 3;</code>
+     * <code>int32 model = 4;</code>
      * @return The model.
      */
-    public java.lang.String getModel() {
-      java.lang.Object ref = model_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        model_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string model = 3;</code>
-     * @return The bytes for model.
-     */
-    public com.google.protobuf.ByteString
-        getModelBytes() {
-      java.lang.Object ref = model_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        model_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getModel() {
+      return model_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4699,14 +4994,17 @@ public final class CarService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getRegistartionNumberBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, registartionNumber_);
+      if (registartionNumber_ != 0) {
+        output.writeInt32(1, registartionNumber_);
       }
-      if (!getPowerBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, power_);
+      if (!getBrandBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, brand_);
       }
-      if (!getModelBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, model_);
+      if (power_ != 0) {
+        output.writeInt32(3, power_);
+      }
+      if (model_ != 0) {
+        output.writeInt32(4, model_);
       }
       unknownFields.writeTo(output);
     }
@@ -4717,14 +5015,20 @@ public final class CarService {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRegistartionNumberBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, registartionNumber_);
+      if (registartionNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, registartionNumber_);
       }
-      if (!getPowerBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, power_);
+      if (!getBrandBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, brand_);
       }
-      if (!getModelBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, model_);
+      if (power_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, power_);
+      }
+      if (model_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, model_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4741,12 +5045,14 @@ public final class CarService {
       }
       ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest other = (ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest) obj;
 
-      if (!getRegistartionNumber()
-          .equals(other.getRegistartionNumber())) return false;
-      if (!getPower()
-          .equals(other.getPower())) return false;
-      if (!getModel()
-          .equals(other.getModel())) return false;
+      if (getRegistartionNumber()
+          != other.getRegistartionNumber()) return false;
+      if (!getBrand()
+          .equals(other.getBrand())) return false;
+      if (getPower()
+          != other.getPower()) return false;
+      if (getModel()
+          != other.getModel()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4759,11 +5065,13 @@ public final class CarService {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REGISTARTIONNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegistartionNumber().hashCode();
+      hash = (53 * hash) + getRegistartionNumber();
+      hash = (37 * hash) + BRAND_FIELD_NUMBER;
+      hash = (53 * hash) + getBrand().hashCode();
       hash = (37 * hash) + POWER_FIELD_NUMBER;
-      hash = (53 * hash) + getPower().hashCode();
+      hash = (53 * hash) + getPower();
       hash = (37 * hash) + MODEL_FIELD_NUMBER;
-      hash = (53 * hash) + getModel().hashCode();
+      hash = (53 * hash) + getModel();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4897,11 +5205,13 @@ public final class CarService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        registartionNumber_ = "";
+        registartionNumber_ = 0;
 
-        power_ = "";
+        brand_ = "";
 
-        model_ = "";
+        power_ = 0;
+
+        model_ = 0;
 
         return this;
       }
@@ -4930,6 +5240,7 @@ public final class CarService {
       public ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest buildPartial() {
         ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest result = new ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest(this);
         result.registartionNumber_ = registartionNumber_;
+        result.brand_ = brand_;
         result.power_ = power_;
         result.model_ = model_;
         onBuilt();
@@ -4980,17 +5291,18 @@ public final class CarService {
 
       public Builder mergeFrom(ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest other) {
         if (other == ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest.getDefaultInstance()) return this;
-        if (!other.getRegistartionNumber().isEmpty()) {
-          registartionNumber_ = other.registartionNumber_;
+        if (other.getRegistartionNumber() != 0) {
+          setRegistartionNumber(other.getRegistartionNumber());
+        }
+        if (!other.getBrand().isEmpty()) {
+          brand_ = other.brand_;
           onChanged();
         }
-        if (!other.getPower().isEmpty()) {
-          power_ = other.power_;
-          onChanged();
+        if (other.getPower() != 0) {
+          setPower(other.getPower());
         }
-        if (!other.getModel().isEmpty()) {
-          model_ = other.model_;
-          onChanged();
+        if (other.getModel() != 0) {
+          setModel(other.getModel());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5021,230 +5333,168 @@ public final class CarService {
         return this;
       }
 
-      private java.lang.Object registartionNumber_ = "";
+      private int registartionNumber_ ;
       /**
-       * <code>string registartionNumber = 1;</code>
+       * <code>int32 registartionNumber = 1;</code>
        * @return The registartionNumber.
        */
-      public java.lang.String getRegistartionNumber() {
-        java.lang.Object ref = registartionNumber_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          registartionNumber_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getRegistartionNumber() {
+        return registartionNumber_;
       }
       /**
-       * <code>string registartionNumber = 1;</code>
-       * @return The bytes for registartionNumber.
-       */
-      public com.google.protobuf.ByteString
-          getRegistartionNumberBytes() {
-        java.lang.Object ref = registartionNumber_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          registartionNumber_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string registartionNumber = 1;</code>
+       * <code>int32 registartionNumber = 1;</code>
        * @param value The registartionNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setRegistartionNumber(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setRegistartionNumber(int value) {
+        
         registartionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string registartionNumber = 1;</code>
+       * <code>int32 registartionNumber = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegistartionNumber() {
         
-        registartionNumber_ = getDefaultInstance().getRegistartionNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string registartionNumber = 1;</code>
-       * @param value The bytes for registartionNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegistartionNumberBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        registartionNumber_ = value;
+        registartionNumber_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object power_ = "";
+      private java.lang.Object brand_ = "";
       /**
-       * <code>string power = 2;</code>
-       * @return The power.
+       * <code>string brand = 2;</code>
+       * @return The brand.
        */
-      public java.lang.String getPower() {
-        java.lang.Object ref = power_;
+      public java.lang.String getBrand() {
+        java.lang.Object ref = brand_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          power_ = s;
+          brand_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string power = 2;</code>
-       * @return The bytes for power.
+       * <code>string brand = 2;</code>
+       * @return The bytes for brand.
        */
       public com.google.protobuf.ByteString
-          getPowerBytes() {
-        java.lang.Object ref = power_;
+          getBrandBytes() {
+        java.lang.Object ref = brand_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          power_ = b;
+          brand_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string power = 2;</code>
-       * @param value The power to set.
+       * <code>string brand = 2;</code>
+       * @param value The brand to set.
        * @return This builder for chaining.
        */
-      public Builder setPower(
+      public Builder setBrand(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
+        brand_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string brand = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBrand() {
+        
+        brand_ = getDefaultInstance().getBrand();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string brand = 2;</code>
+       * @param value The bytes for brand to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBrandBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        brand_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int power_ ;
+      /**
+       * <code>int32 power = 3;</code>
+       * @return The power.
+       */
+      public int getPower() {
+        return power_;
+      }
+      /**
+       * <code>int32 power = 3;</code>
+       * @param value The power to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPower(int value) {
+        
         power_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string power = 2;</code>
+       * <code>int32 power = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPower() {
         
-        power_ = getDefaultInstance().getPower();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string power = 2;</code>
-       * @param value The bytes for power to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPowerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        power_ = value;
+        power_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object model_ = "";
+      private int model_ ;
       /**
-       * <code>string model = 3;</code>
+       * <code>int32 model = 4;</code>
        * @return The model.
        */
-      public java.lang.String getModel() {
-        java.lang.Object ref = model_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          model_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getModel() {
+        return model_;
       }
       /**
-       * <code>string model = 3;</code>
-       * @return The bytes for model.
-       */
-      public com.google.protobuf.ByteString
-          getModelBytes() {
-        java.lang.Object ref = model_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          model_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string model = 3;</code>
+       * <code>int32 model = 4;</code>
        * @param value The model to set.
        * @return This builder for chaining.
        */
-      public Builder setModel(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setModel(int value) {
+        
         model_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string model = 3;</code>
+       * <code>int32 model = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearModel() {
         
-        model_ = getDefaultInstance().getModel();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string model = 3;</code>
-       * @param value The bytes for model to set.
-       * @return This builder for chaining.
-       */
-      public Builder setModelBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        model_ = value;
+        model_ = 0;
         onChanged();
         return this;
       }
@@ -5935,6 +6185,11 @@ public final class CarService {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetCarRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetCarRegistreRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetCarRegistreRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GetCarResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -5968,36 +6223,37 @@ public final class CarService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020CarService.proto\032\037google/protobuf/time" +
-      "stamp.proto\"b\n\003Car\022\n\n\002id\030\001 \001(\003\022\032\n\022regist" +
-      "artionNumber\030\002 \001(\t\022\r\n\005power\030\003 \001(\t\022\r\n\005mod" +
-      "el\030\004 \001(\t\022\025\n\005owner\030\005 \001(\0132\006.Owner\"Y\n\005Owner" +
-      "\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022(\n\004date\030\003 \001(\013" +
-      "2\032.google.protobuf.Timestamp\022\014\n\004mail\030\004 \001" +
-      "(\t\"\033\n\rGetCarRequest\022\n\n\002id\030\001 \001(\003\"#\n\016GetCa" +
-      "rResponse\022\021\n\003car\030\001 \001(\0132\004.Car\"\023\n\021GetAllCa" +
-      "rsRequest\"\'\n\022GetAllCarsResponse\022\021\n\003car\030\001" +
-      " \003(\0132\004.Car\"J\n\016SaveCarRequest\022\032\n\022registar" +
-      "tionNumber\030\001 \001(\t\022\r\n\005power\030\002 \001(\t\022\r\n\005model" +
-      "\030\003 \001(\t\"$\n\017SaveCarResponse\022\021\n\003car\030\001 \001(\0132\004" +
-      ".Car2\241\001\n\016CarGrpcService\022)\n\006getCar\022\016.GetC" +
-      "arRequest\032\017.GetCarResponse\0226\n\013getListCar" +
-      "s\022\022.GetAllCarsRequest\032\023.GetAllCarsRespon" +
-      "se\022,\n\007saveCar\022\017.SaveCarRequest\032\020.SaveCar" +
-      "ResponseB,\n*ma.enset.registrationservice" +
-      ".web.grpc.stubb\006proto3"
+      "\n\020CarService.proto\"q\n\003Car\022\n\n\002id\030\001 \001(\003\022\032\n" +
+      "\022registartionNumber\030\002 \001(\005\022\r\n\005brand\030\003 \001(\t" +
+      "\022\r\n\005power\030\004 \001(\005\022\r\n\005model\030\005 \001(\005\022\025\n\005owner\030" +
+      "\006 \001(\0132\006.Owner\"=\n\005Owner\022\n\n\002id\030\001 \001(\003\022\014\n\004na" +
+      "me\030\002 \001(\t\022\014\n\004date\030\003 \001(\t\022\014\n\004mail\030\004 \001(\t\"\033\n\r" +
+      "GetCarRequest\022\n\n\002id\030\001 \001(\003\"3\n\025GetCarRegis" +
+      "treRequest\022\032\n\022registartionNumber\030\001 \001(\005\"#" +
+      "\n\016GetCarResponse\022\021\n\003car\030\001 \001(\0132\004.Car\"\023\n\021G" +
+      "etAllCarsRequest\"\'\n\022GetAllCarsResponse\022\021" +
+      "\n\003car\030\001 \003(\0132\004.Car\"Y\n\016SaveCarRequest\022\032\n\022r" +
+      "egistartionNumber\030\001 \001(\005\022\r\n\005brand\030\002 \001(\t\022\r" +
+      "\n\005power\030\003 \001(\005\022\r\n\005model\030\004 \001(\005\"$\n\017SaveCarR" +
+      "esponse\022\021\n\003car\030\001 \001(\0132\004.Car2\336\001\n\016CarGrpcSe" +
+      "rvice\022)\n\006getCar\022\016.GetCarRequest\032\017.GetCar" +
+      "Response\022;\n\020getCarByRegistre\022\026.GetCarReg" +
+      "istreRequest\032\017.GetCarResponse\0226\n\013getList" +
+      "Cars\022\022.GetAllCarsRequest\032\023.GetAllCarsRes" +
+      "ponse\022,\n\007saveCar\022\017.SaveCarRequest\032\020.Save" +
+      "CarResponseB,\n*ma.enset.registrationserv" +
+      "ice.web.grpc.stubb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_Car_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_Car_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Car_descriptor,
-        new java.lang.String[] { "Id", "RegistartionNumber", "Power", "Model", "Owner", });
+        new java.lang.String[] { "Id", "RegistartionNumber", "Brand", "Power", "Model", "Owner", });
     internal_static_Owner_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Owner_fieldAccessorTable = new
@@ -6010,37 +6266,42 @@ public final class CarService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetCarRequest_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_GetCarResponse_descriptor =
+    internal_static_GetCarRegistreRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_GetCarRegistreRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetCarRegistreRequest_descriptor,
+        new java.lang.String[] { "RegistartionNumber", });
+    internal_static_GetCarResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_GetCarResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetCarResponse_descriptor,
         new java.lang.String[] { "Car", });
     internal_static_GetAllCarsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_GetAllCarsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetAllCarsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_GetAllCarsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_GetAllCarsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetAllCarsResponse_descriptor,
         new java.lang.String[] { "Car", });
     internal_static_SaveCarRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_SaveCarRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SaveCarRequest_descriptor,
-        new java.lang.String[] { "RegistartionNumber", "Power", "Model", });
+        new java.lang.String[] { "RegistartionNumber", "Brand", "Power", "Model", });
     internal_static_SaveCarResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_SaveCarResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SaveCarResponse_descriptor,
         new java.lang.String[] { "Car", });
-    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
