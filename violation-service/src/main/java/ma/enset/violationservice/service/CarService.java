@@ -10,12 +10,12 @@ import java.util.List;
 @FeignClient(name = "registration-service")
 public interface CarService {
 
-    @GetMapping("/cars/{id}")
+    @GetMapping("/rest-api/cars/{id}")
     Car carByID(@PathVariable long id);
 
-    @GetMapping("/cars/{number}")
+    @GetMapping("/rest-api/cars/registration/{number}")
     Car carByRegistreNumber(@PathVariable int number);
 
-    @GetMapping("/cars")
+    @GetMapping("/rest-api/cars")
     List<Car> getAllCars();
 }

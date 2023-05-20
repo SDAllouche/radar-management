@@ -8,11 +8,22 @@ message Radar {
   double latitude=4;
 }
 
+message Violation {
+  int64 id=1;
+  string date=2;
+  int64 radarID=3;
+  int64 registrationNumber=4;
+  int32 carSpeed=5;
+  int64 maxSpeed=6;
+  double penalty=7;
+}
+
 
 service RadarGrpcService {
   rpc getRadar(GetRadarRequest) returns (GetRadarResponse);
   rpc getListRadars(GetAllRadarsRequest) returns ( GetAllRadarsResponse);
   rpc saveRadar(SaveRadarRequest) returns (SaveRadarResponse);
+  rpc generateViolation(SaveViolationRequest) returns (SaveViolationResponse);
 }
 message GetRadarRequest{
   int64 id=1;
@@ -31,4 +42,16 @@ message SaveRadarRequest {
 }
 message SaveRadarResponse {
   Radar radar=1;
+}
+
+message SaveViolationRequest {
+  string date=1;
+  int64 radarID=2;
+  int64 registrationNumber=3;
+  int32 carSpeed=4;
+  int64 maxSpeed=5;
+  double penalty=6;
+}
+message SaveViolationResponse {
+  Violation violation=1;
 }

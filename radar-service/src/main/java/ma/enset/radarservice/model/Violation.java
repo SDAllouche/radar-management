@@ -1,13 +1,14 @@
 package ma.enset.radarservice.model;
 
 
+import lombok.Builder;
 import lombok.Data;
 
 
 import java.util.Date;
 
 
-@Data
+@Data @Builder
 public class Violation {
 
     private long id;

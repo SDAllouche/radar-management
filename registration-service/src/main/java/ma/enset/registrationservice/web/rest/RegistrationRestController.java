@@ -45,7 +45,7 @@ public class RegistrationRestController {
         return registrationService.addCar(carRequestDTO);
     }
 
-    @GetMapping("/cars/{number}")
+    @GetMapping("/cars/registration/{number}")
     public CarResponseDTO CarById(@PathVariable int number){
         return registrationService.getCarByRegistartionNumber(number);
     }

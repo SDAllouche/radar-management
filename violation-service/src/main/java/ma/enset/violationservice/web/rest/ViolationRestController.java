@@ -24,17 +24,17 @@ public class ViolationRestController {
     }
 
     @GetMapping("/violations")
-    public List<ViolationResponseDTO> Radars(){
+    public List<ViolationResponseDTO> Violations(){
         return violationService.getAllViolations();
     }
 
     @GetMapping("/violations/{id}")
-    public ViolationResponseDTO RadarById(@PathVariable long id){
+    public ViolationResponseDTO ViolationById(@PathVariable long id){
         return violationService.getViolation(id);
     }
 
     @PostMapping("/violations")
-    public ViolationResponseDTO saveRadar(@RequestBody ViolationRequestDTO violationRequestDTO){
+    public ViolationResponseDTO saveViolation(@RequestBody ViolationRequestDTO violationRequestDTO){
 
         return violationService.addViolation(violationRequestDTO);
     }

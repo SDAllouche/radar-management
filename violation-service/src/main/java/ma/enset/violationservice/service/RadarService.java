@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "registration-service")
+@FeignClient(name = "radar-service")
 public interface RadarService {
 
-    @GetMapping("/radars/{id}")
+    @GetMapping("/rest-api/radars/{id}")
     Radar radarByID(@PathVariable long id);
 
-    @GetMapping("/radars")
+    @GetMapping("/rest-api/radars")
     List<Radar> getAllRadars();
 }
