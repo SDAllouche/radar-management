@@ -45,6 +45,11 @@ public class RegistrationRestController {
         return registrationService.addCar(carRequestDTO);
     }
 
+    @GetMapping("/cars/{number}")
+    public CarResponseDTO CarById(@PathVariable int number){
+        return registrationService.getCarByRegistartionNumber(number);
+    }
+
 
     @GetMapping("/owners")
     public List<Owner> Owners(){
