@@ -17,7 +17,7 @@ public class ViolationServiceApplication {
         SpringApplication.run(ViolationServiceApplication.class, args);
     }
 
-    @Bean
+    /*@Bean
     CommandLineRunner start(ViolationRepository violationRepository){
         return args -> {
             //int[] speeds={40,50,60,70,80,90,100,110,120};
@@ -35,6 +35,6 @@ public class ViolationServiceApplication {
                 violationRepository.save(violation) ;
             }
         };
-    }
+    }*/
 
 }

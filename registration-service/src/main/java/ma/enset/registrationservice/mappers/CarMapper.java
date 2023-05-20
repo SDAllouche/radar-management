@@ -1,6 +1,7 @@
 package ma.enset.registrationservice.mappers;
 
 
+import com.google.protobuf.Timestamp;
 import ma.enset.registrationservice.dto.CarResponseDTO;
 import ma.enset.registrationservice.dto.OwnerResponseDTO;
 import ma.enset.registrationservice.entities.Car;
@@ -29,6 +30,19 @@ public class CarMapper {
     }
 
     public CarService.Car fromCarGrpc(Car car){
-        return modelMapper.map(car,CarService.Car.Builder.class).build();
+        CarService.Car savedCard= CarService.Car.newBuilder()
+                .setId(car.getId())
+                .setRegistartionNumber(String.valueOf(car.getRegistartionNumber()))
+                .setModel(String.valueOf(car.getModel()))
+                .setPower(String.valueOf(car.getPower()))
+                .setOwner(CarService.Owner.newBuilder()
+                        .setId(car.getOwner().getId())
+                        .setName(car.getOwner().getName())
+                        .setDate(Timestamp.newBuilder().setSeconds(car.getOwner().getDate().getTime()).build())
+                        .setMail(car.getOwner().getMail())
+                        .build())
+                .build();
+        //return modelMapper.map(car,CarService.Car.Builder.class).build();
+        return savedCard;
     }
 }
