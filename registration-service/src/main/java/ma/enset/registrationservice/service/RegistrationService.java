@@ -13,4 +13,7 @@ public interface RegistrationService {
     public CarResponseDTO getCar(long id);
 
     public CarResponseDTO addCar(CarRequestDTO carRequestDTO);
+
+
+    CarResponseDTO getCarByRegistartionNumber(int number);
 }

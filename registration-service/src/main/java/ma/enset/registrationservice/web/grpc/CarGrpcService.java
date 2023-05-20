@@ -44,6 +44,12 @@ public class CarGrpcService extends CarGrpcServiceGrpc.CarGrpcServiceImplBase {
 
     @Override
     public void getCarByRegistre(CarService.GetCarRegistreRequest request, StreamObserver<CarService.GetCarResponse> responseObserver) {
-
+        Car car = carRepository.getCarByRegistartionNumber(request.getRegistartionNumber());
+        CarService.Car grpcCar=carMapper.fromCarGrpc(car);
+        CarService.GetCarResponse carResponse=CarService.GetCarResponse.newBuilder()
+                .setCar(grpcCar)
+                .build();
+        responseObserver.onNext(carResponse);
+        responseObserver.onCompleted();
     }
 }

@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 @Service @Transactional
 public class RegistrationServiceImpl implements RegistrationService {
@@ -69,6 +68,13 @@ public class RegistrationServiceImpl implements RegistrationService {
 
         CarResponseDTO carResponseDTO=carMapper.fromCar(saved);
 
+        return carResponseDTO;
+    }
+
+    @Override
+    public CarResponseDTO getCarByRegistartionNumber(int number){
+        Car car = carRepository.getCarByRegistartionNumber(number);
+        CarResponseDTO carResponseDTO=carMapper.fromCar(car);
         return carResponseDTO;
     }
 }
