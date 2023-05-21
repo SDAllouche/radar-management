@@ -1,5 +1,7 @@
 package ma.enset.grpcclientservice.stub;
 
+import org.springframework.stereotype.Component;
+
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
