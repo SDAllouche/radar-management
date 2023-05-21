@@ -18,7 +18,7 @@ public class RadarGrpcApp {
 
 
 
-    public static void main(Strisng[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
         ManagedChannel managedChannel= ManagedChannelBuilder.forAddress("localhost",9998)
                 .usePlaintext()
