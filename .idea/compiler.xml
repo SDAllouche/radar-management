@@ -12,6 +12,7 @@
         <module name="violation-service" />
         <module name="eureka-discovery" />
         <module name="gateway-service" />
+        <module name="grpc-client-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +26,7 @@
       <module name="discovery-service" options="-parameters" />
       <module name="eureka-discovery" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
+      <module name="grpc-client-service" options="-parameters" />
       <module name="radar-service" options="-parameters" />
       <module name="registration-service" options="-parameters" />
       <module name="violation-service" options="-parameters" />
