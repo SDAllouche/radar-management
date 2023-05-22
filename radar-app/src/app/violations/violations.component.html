@@ -1,0 +1,21 @@
+<div class="container">
+  <table class="table" *ngIf="violations">
+    <thead>
+    <tr>
+      <th>Id</th> <th>Radar Id</th> <th>Registration</th> <th>Car Speed</th> <th>Max Speed</th>
+      <th>Date</th><th>Penalty</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of violations._embedded.violations">
+      <td>{{p.id}}</td>
+      <td>{{p.radarID}}</td>
+      <td>{{p.registrationNumber}}</td>
+      <td>{{p.carSpeed}}</td>
+      <td>{{p.maxSpeed}}</td>
+      <td>{{p.date}}</td>
+      <td>{{p.penalty}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
