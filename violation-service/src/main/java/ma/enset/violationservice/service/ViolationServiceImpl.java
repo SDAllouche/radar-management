@@ -59,4 +59,23 @@ public class ViolationServiceImpl implements ViolationService {
 
         return violationResponseDTO;
     }
+
+    @Override
+    public ViolationResponseDTO updateViolation(ViolationRequestDTO violationRequestDTO, long id) {
+        Violation violation=violationRepository.findById(id).orElseThrow();
+        violation.setMaxSpeed(violationRequestDTO.getMaxSpeed());
+        violation.setRadarID(violationRequestDTO.getRadarID());
+        violation.setRegistrationNumber(violationRequestDTO.getRegistrationNumber());
+        violation.setCarSpeed(violationRequestDTO.getCarSpeed());
+        violation.setDate(new Date());
+        Violation savedViolation=violationRepository.save(violation);
+        ViolationResponseDTO violationResponseDTO=violationMapper.fromViolation(savedViolation);
+
+        return violationResponseDTO;
+    }
+
+    @Override
+    public void deleteViolation(long id) {
+        violationRepository.deleteById(id);
+    }
 }

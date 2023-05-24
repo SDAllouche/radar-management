@@ -123,38 +123,6 @@ public final class RadarGrpcServiceGrpc {
      return getSaveRadarMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest,
-      ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse> getGenerateViolationMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "generateViolation",
-      requestType = ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest.class,
-      responseType = ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest,
-      ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse> getGenerateViolationMethod() {
-    io.grpc.MethodDescriptor<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest, ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse> getGenerateViolationMethod;
-    if ((getGenerateViolationMethod = RadarGrpcServiceGrpc.getGenerateViolationMethod) == null) {
-      synchronized (RadarGrpcServiceGrpc.class) {
-        if ((getGenerateViolationMethod = RadarGrpcServiceGrpc.getGenerateViolationMethod) == null) {
-          RadarGrpcServiceGrpc.getGenerateViolationMethod = getGenerateViolationMethod = 
-              io.grpc.MethodDescriptor.<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest, ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "RadarGrpcService", "generateViolation"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new RadarGrpcServiceMethodDescriptorSupplier("generateViolation"))
-                  .build();
-          }
-        }
-     }
-     return getGenerateViolationMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -203,13 +171,6 @@ public final class RadarGrpcServiceGrpc {
       asyncUnimplementedUnaryCall(getSaveRadarMethod(), responseObserver);
     }
 
-    /**
-     */
-    public void generateViolation(ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest request,
-        io.grpc.stub.StreamObserver<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getGenerateViolationMethod(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -233,13 +194,6 @@ public final class RadarGrpcServiceGrpc {
                 ma.enset.radarservice.web.grpc.stub.RadarService.SaveRadarRequest,
                 ma.enset.radarservice.web.grpc.stub.RadarService.SaveRadarResponse>(
                   this, METHODID_SAVE_RADAR)))
-          .addMethod(
-            getGenerateViolationMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest,
-                ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse>(
-                  this, METHODID_GENERATE_VIOLATION)))
           .build();
     }
   }
@@ -285,14 +239,6 @@ public final class RadarGrpcServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSaveRadarMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void generateViolation(ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest request,
-        io.grpc.stub.StreamObserver<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getGenerateViolationMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -332,13 +278,6 @@ public final class RadarGrpcServiceGrpc {
     public ma.enset.radarservice.web.grpc.stub.RadarService.SaveRadarResponse saveRadar(ma.enset.radarservice.web.grpc.stub.RadarService.SaveRadarRequest request) {
       return blockingUnaryCall(
           getChannel(), getSaveRadarMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse generateViolation(ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getGenerateViolationMethod(), getCallOptions(), request);
     }
   }
 
@@ -383,20 +322,11 @@ public final class RadarGrpcServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSaveRadarMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse> generateViolation(
-        ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getGenerateViolationMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_GET_RADAR = 0;
   private static final int METHODID_GET_LIST_RADARS = 1;
   private static final int METHODID_SAVE_RADAR = 2;
-  private static final int METHODID_GENERATE_VIOLATION = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -426,10 +356,6 @@ public final class RadarGrpcServiceGrpc {
         case METHODID_SAVE_RADAR:
           serviceImpl.saveRadar((ma.enset.radarservice.web.grpc.stub.RadarService.SaveRadarRequest) request,
               (io.grpc.stub.StreamObserver<ma.enset.radarservice.web.grpc.stub.RadarService.SaveRadarResponse>) responseObserver);
-          break;
-        case METHODID_GENERATE_VIOLATION:
-          serviceImpl.generateViolation((ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationRequest) request,
-              (io.grpc.stub.StreamObserver<ma.enset.radarservice.web.grpc.stub.RadarService.SaveViolationResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -495,7 +421,6 @@ public final class RadarGrpcServiceGrpc {
               .addMethod(getGetRadarMethod())
               .addMethod(getGetListRadarsMethod())
               .addMethod(getSaveRadarMethod())
-              .addMethod(getGenerateViolationMethod())
               .build();
         }
       }

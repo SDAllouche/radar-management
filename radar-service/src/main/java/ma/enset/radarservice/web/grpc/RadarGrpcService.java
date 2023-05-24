@@ -48,23 +48,16 @@ public class RadarGrpcService extends RadarGrpcServiceGrpc.RadarGrpcServiceImplB
     }
 
     @Override
-    public void generateViolation(RadarService.SaveViolationRequest request, StreamObserver<RadarService.SaveViolationResponse> responseObserver) {
-        Violation violation= Violation.builder()
-                .radarID(request.getRadarID())
-                .maxSpeed((int) request.getMaxSpeed())
-                .registrationNumber((int) request.getRegistrationNumber())
-                .carSpeed(request.getCarSpeed())
-                .date(new Date())
-                .penalty(request.getPenalty())
+    public void saveRadar(RadarService.SaveRadarRequest request, StreamObserver<RadarService.SaveRadarResponse> responseObserver) {
+        Radar radar=new Radar();
+        radar.setMaxSpeed((int) request.getMaxSpeed());
+        radar.setLongitude(request.getLongitude());
+        radar.setLongitude(request.getLatitude());
+        Radar savedRadar = radarRepository.save(radar);
+        RadarService.Radar radarGrpc = radarMapper.fromRadarGrpc(savedRadar);
+        RadarService.SaveRadarResponse response = RadarService.SaveRadarResponse.newBuilder()
+                .setRadar(radarGrpc)
                 .build();
-
-        Violation savedViolation=violationService.generateViolation(violation);
-
-        RadarService.Violation grpcViolation=radarMapper.fromViolationGrpc(violation);
-        RadarService.SaveViolationResponse response=RadarService.SaveViolationResponse.newBuilder()
-                .setViolation(grpcViolation)
-                .build();
-
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }

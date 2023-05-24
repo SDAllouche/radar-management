@@ -25,10 +25,10 @@ public final class CarService {
     long getId();
 
     /**
-     * <code>int32 registartionNumber = 2;</code>
+     * <code>int64 registartionNumber = 2;</code>
      * @return The registartionNumber.
      */
-    int getRegistartionNumber();
+    long getRegistartionNumber();
 
     /**
      * <code>string brand = 3;</code>
@@ -43,16 +43,16 @@ public final class CarService {
         getBrandBytes();
 
     /**
-     * <code>int32 power = 4;</code>
+     * <code>int64 power = 4;</code>
      * @return The power.
      */
-    int getPower();
+    long getPower();
 
     /**
-     * <code>int32 model = 5;</code>
+     * <code>int64 model = 5;</code>
      * @return The model.
      */
-    int getModel();
+    long getModel();
 
     /**
      * <code>.Owner owner = 6;</code>
@@ -122,7 +122,7 @@ public final class CarService {
             }
             case 16: {
 
-              registartionNumber_ = input.readInt32();
+              registartionNumber_ = input.readInt64();
               break;
             }
             case 26: {
@@ -133,12 +133,12 @@ public final class CarService {
             }
             case 32: {
 
-              power_ = input.readInt32();
+              power_ = input.readInt64();
               break;
             }
             case 40: {
 
-              model_ = input.readInt32();
+              model_ = input.readInt64();
               break;
             }
             case 50: {
@@ -197,12 +197,12 @@ public final class CarService {
     }
 
     public static final int REGISTARTIONNUMBER_FIELD_NUMBER = 2;
-    private int registartionNumber_;
+    private long registartionNumber_;
     /**
-     * <code>int32 registartionNumber = 2;</code>
+     * <code>int64 registartionNumber = 2;</code>
      * @return The registartionNumber.
      */
-    public int getRegistartionNumber() {
+    public long getRegistartionNumber() {
       return registartionNumber_;
     }
 
@@ -243,22 +243,22 @@ public final class CarService {
     }
 
     public static final int POWER_FIELD_NUMBER = 4;
-    private int power_;
+    private long power_;
     /**
-     * <code>int32 power = 4;</code>
+     * <code>int64 power = 4;</code>
      * @return The power.
      */
-    public int getPower() {
+    public long getPower() {
       return power_;
     }
 
     public static final int MODEL_FIELD_NUMBER = 5;
-    private int model_;
+    private long model_;
     /**
-     * <code>int32 model = 5;</code>
+     * <code>int64 model = 5;</code>
      * @return The model.
      */
-    public int getModel() {
+    public long getModel() {
       return model_;
     }
 
@@ -302,17 +302,17 @@ public final class CarService {
       if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
-      if (registartionNumber_ != 0) {
-        output.writeInt32(2, registartionNumber_);
+      if (registartionNumber_ != 0L) {
+        output.writeInt64(2, registartionNumber_);
       }
       if (!getBrandBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, brand_);
       }
-      if (power_ != 0) {
-        output.writeInt32(4, power_);
+      if (power_ != 0L) {
+        output.writeInt64(4, power_);
       }
-      if (model_ != 0) {
-        output.writeInt32(5, model_);
+      if (model_ != 0L) {
+        output.writeInt64(5, model_);
       }
       if (owner_ != null) {
         output.writeMessage(6, getOwner());
@@ -330,20 +330,20 @@ public final class CarService {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
       }
-      if (registartionNumber_ != 0) {
+      if (registartionNumber_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, registartionNumber_);
+          .computeInt64Size(2, registartionNumber_);
       }
       if (!getBrandBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, brand_);
       }
-      if (power_ != 0) {
+      if (power_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, power_);
+          .computeInt64Size(4, power_);
       }
-      if (model_ != 0) {
+      if (model_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, model_);
+          .computeInt64Size(5, model_);
       }
       if (owner_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -394,13 +394,16 @@ public final class CarService {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
       hash = (37 * hash) + REGISTARTIONNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegistartionNumber();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegistartionNumber());
       hash = (37 * hash) + BRAND_FIELD_NUMBER;
       hash = (53 * hash) + getBrand().hashCode();
       hash = (37 * hash) + POWER_FIELD_NUMBER;
-      hash = (53 * hash) + getPower();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPower());
       hash = (37 * hash) + MODEL_FIELD_NUMBER;
-      hash = (53 * hash) + getModel();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getModel());
       if (hasOwner()) {
         hash = (37 * hash) + OWNER_FIELD_NUMBER;
         hash = (53 * hash) + getOwner().hashCode();
@@ -540,13 +543,13 @@ public final class CarService {
         super.clear();
         id_ = 0L;
 
-        registartionNumber_ = 0;
+        registartionNumber_ = 0L;
 
         brand_ = "";
 
-        power_ = 0;
+        power_ = 0L;
 
-        model_ = 0;
+        model_ = 0L;
 
         if (ownerBuilder_ == null) {
           owner_ = null;
@@ -641,17 +644,17 @@ public final class CarService {
         if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (other.getRegistartionNumber() != 0) {
+        if (other.getRegistartionNumber() != 0L) {
           setRegistartionNumber(other.getRegistartionNumber());
         }
         if (!other.getBrand().isEmpty()) {
           brand_ = other.brand_;
           onChanged();
         }
-        if (other.getPower() != 0) {
+        if (other.getPower() != 0L) {
           setPower(other.getPower());
         }
-        if (other.getModel() != 0) {
+        if (other.getModel() != 0L) {
           setModel(other.getModel());
         }
         if (other.hasOwner()) {
@@ -716,32 +719,32 @@ public final class CarService {
         return this;
       }
 
-      private int registartionNumber_ ;
+      private long registartionNumber_ ;
       /**
-       * <code>int32 registartionNumber = 2;</code>
+       * <code>int64 registartionNumber = 2;</code>
        * @return The registartionNumber.
        */
-      public int getRegistartionNumber() {
+      public long getRegistartionNumber() {
         return registartionNumber_;
       }
       /**
-       * <code>int32 registartionNumber = 2;</code>
+       * <code>int64 registartionNumber = 2;</code>
        * @param value The registartionNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setRegistartionNumber(int value) {
+      public Builder setRegistartionNumber(long value) {
         
         registartionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 registartionNumber = 2;</code>
+       * <code>int64 registartionNumber = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegistartionNumber() {
         
-        registartionNumber_ = 0;
+        registartionNumber_ = 0L;
         onChanged();
         return this;
       }
@@ -822,62 +825,62 @@ public final class CarService {
         return this;
       }
 
-      private int power_ ;
+      private long power_ ;
       /**
-       * <code>int32 power = 4;</code>
+       * <code>int64 power = 4;</code>
        * @return The power.
        */
-      public int getPower() {
+      public long getPower() {
         return power_;
       }
       /**
-       * <code>int32 power = 4;</code>
+       * <code>int64 power = 4;</code>
        * @param value The power to set.
        * @return This builder for chaining.
        */
-      public Builder setPower(int value) {
+      public Builder setPower(long value) {
         
         power_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 power = 4;</code>
+       * <code>int64 power = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPower() {
         
-        power_ = 0;
+        power_ = 0L;
         onChanged();
         return this;
       }
 
-      private int model_ ;
+      private long model_ ;
       /**
-       * <code>int32 model = 5;</code>
+       * <code>int64 model = 5;</code>
        * @return The model.
        */
-      public int getModel() {
+      public long getModel() {
         return model_;
       }
       /**
-       * <code>int32 model = 5;</code>
+       * <code>int64 model = 5;</code>
        * @param value The model to set.
        * @return This builder for chaining.
        */
-      public Builder setModel(int value) {
+      public Builder setModel(long value) {
         
         model_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 model = 5;</code>
+       * <code>int64 model = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearModel() {
         
-        model_ = 0;
+        model_ = 0L;
         onChanged();
         return this;
       }
@@ -2476,10 +2479,10 @@ public final class CarService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 registartionNumber = 1;</code>
+     * <code>int64 registartionNumber = 1;</code>
      * @return The registartionNumber.
      */
-    int getRegistartionNumber();
+    long getRegistartionNumber();
   }
   /**
    * Protobuf type {@code GetCarRegistreRequest}
@@ -2528,7 +2531,7 @@ public final class CarService {
               break;
             case 8: {
 
-              registartionNumber_ = input.readInt32();
+              registartionNumber_ = input.readInt64();
               break;
             }
             default: {
@@ -2564,12 +2567,12 @@ public final class CarService {
     }
 
     public static final int REGISTARTIONNUMBER_FIELD_NUMBER = 1;
-    private int registartionNumber_;
+    private long registartionNumber_;
     /**
-     * <code>int32 registartionNumber = 1;</code>
+     * <code>int64 registartionNumber = 1;</code>
      * @return The registartionNumber.
      */
-    public int getRegistartionNumber() {
+    public long getRegistartionNumber() {
       return registartionNumber_;
     }
 
@@ -2587,8 +2590,8 @@ public final class CarService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (registartionNumber_ != 0) {
-        output.writeInt32(1, registartionNumber_);
+      if (registartionNumber_ != 0L) {
+        output.writeInt64(1, registartionNumber_);
       }
       unknownFields.writeTo(output);
     }
@@ -2599,9 +2602,9 @@ public final class CarService {
       if (size != -1) return size;
 
       size = 0;
-      if (registartionNumber_ != 0) {
+      if (registartionNumber_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, registartionNumber_);
+          .computeInt64Size(1, registartionNumber_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2632,7 +2635,8 @@ public final class CarService {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REGISTARTIONNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegistartionNumber();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegistartionNumber());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2766,7 +2770,7 @@ public final class CarService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        registartionNumber_ = 0;
+        registartionNumber_ = 0L;
 
         return this;
       }
@@ -2843,7 +2847,7 @@ public final class CarService {
 
       public Builder mergeFrom(ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest other) {
         if (other == ma.enset.registrationservice.web.grpc.stub.CarService.GetCarRegistreRequest.getDefaultInstance()) return this;
-        if (other.getRegistartionNumber() != 0) {
+        if (other.getRegistartionNumber() != 0L) {
           setRegistartionNumber(other.getRegistartionNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -2875,32 +2879,32 @@ public final class CarService {
         return this;
       }
 
-      private int registartionNumber_ ;
+      private long registartionNumber_ ;
       /**
-       * <code>int32 registartionNumber = 1;</code>
+       * <code>int64 registartionNumber = 1;</code>
        * @return The registartionNumber.
        */
-      public int getRegistartionNumber() {
+      public long getRegistartionNumber() {
         return registartionNumber_;
       }
       /**
-       * <code>int32 registartionNumber = 1;</code>
+       * <code>int64 registartionNumber = 1;</code>
        * @param value The registartionNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setRegistartionNumber(int value) {
+      public Builder setRegistartionNumber(long value) {
         
         registartionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 registartionNumber = 1;</code>
+       * <code>int64 registartionNumber = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegistartionNumber() {
         
-        registartionNumber_ = 0;
+        registartionNumber_ = 0L;
         onChanged();
         return this;
       }
@@ -4786,10 +4790,10 @@ public final class CarService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 registartionNumber = 1;</code>
+     * <code>int64 registartionNumber = 1;</code>
      * @return The registartionNumber.
      */
-    int getRegistartionNumber();
+    long getRegistartionNumber();
 
     /**
      * <code>string brand = 2;</code>
@@ -4804,16 +4808,31 @@ public final class CarService {
         getBrandBytes();
 
     /**
-     * <code>int32 power = 3;</code>
+     * <code>int64 power = 3;</code>
      * @return The power.
      */
-    int getPower();
+    long getPower();
 
     /**
-     * <code>int32 model = 4;</code>
+     * <code>int64 model = 4;</code>
      * @return The model.
      */
-    int getModel();
+    long getModel();
+
+    /**
+     * <code>.Owner owner = 5;</code>
+     * @return Whether the owner field is set.
+     */
+    boolean hasOwner();
+    /**
+     * <code>.Owner owner = 5;</code>
+     * @return The owner.
+     */
+    ma.enset.registrationservice.web.grpc.stub.CarService.Owner getOwner();
+    /**
+     * <code>.Owner owner = 5;</code>
+     */
+    ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder getOwnerOrBuilder();
   }
   /**
    * Protobuf type {@code SaveCarRequest}
@@ -4863,7 +4882,7 @@ public final class CarService {
               break;
             case 8: {
 
-              registartionNumber_ = input.readInt32();
+              registartionNumber_ = input.readInt64();
               break;
             }
             case 18: {
@@ -4874,12 +4893,25 @@ public final class CarService {
             }
             case 24: {
 
-              power_ = input.readInt32();
+              power_ = input.readInt64();
               break;
             }
             case 32: {
 
-              model_ = input.readInt32();
+              model_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder subBuilder = null;
+              if (owner_ != null) {
+                subBuilder = owner_.toBuilder();
+              }
+              owner_ = input.readMessage(ma.enset.registrationservice.web.grpc.stub.CarService.Owner.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(owner_);
+                owner_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -4915,12 +4947,12 @@ public final class CarService {
     }
 
     public static final int REGISTARTIONNUMBER_FIELD_NUMBER = 1;
-    private int registartionNumber_;
+    private long registartionNumber_;
     /**
-     * <code>int32 registartionNumber = 1;</code>
+     * <code>int64 registartionNumber = 1;</code>
      * @return The registartionNumber.
      */
-    public int getRegistartionNumber() {
+    public long getRegistartionNumber() {
       return registartionNumber_;
     }
 
@@ -4961,23 +4993,46 @@ public final class CarService {
     }
 
     public static final int POWER_FIELD_NUMBER = 3;
-    private int power_;
+    private long power_;
     /**
-     * <code>int32 power = 3;</code>
+     * <code>int64 power = 3;</code>
      * @return The power.
      */
-    public int getPower() {
+    public long getPower() {
       return power_;
     }
 
     public static final int MODEL_FIELD_NUMBER = 4;
-    private int model_;
+    private long model_;
     /**
-     * <code>int32 model = 4;</code>
+     * <code>int64 model = 4;</code>
      * @return The model.
      */
-    public int getModel() {
+    public long getModel() {
       return model_;
+    }
+
+    public static final int OWNER_FIELD_NUMBER = 5;
+    private ma.enset.registrationservice.web.grpc.stub.CarService.Owner owner_;
+    /**
+     * <code>.Owner owner = 5;</code>
+     * @return Whether the owner field is set.
+     */
+    public boolean hasOwner() {
+      return owner_ != null;
+    }
+    /**
+     * <code>.Owner owner = 5;</code>
+     * @return The owner.
+     */
+    public ma.enset.registrationservice.web.grpc.stub.CarService.Owner getOwner() {
+      return owner_ == null ? ma.enset.registrationservice.web.grpc.stub.CarService.Owner.getDefaultInstance() : owner_;
+    }
+    /**
+     * <code>.Owner owner = 5;</code>
+     */
+    public ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder getOwnerOrBuilder() {
+      return getOwner();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4994,17 +5049,20 @@ public final class CarService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (registartionNumber_ != 0) {
-        output.writeInt32(1, registartionNumber_);
+      if (registartionNumber_ != 0L) {
+        output.writeInt64(1, registartionNumber_);
       }
       if (!getBrandBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, brand_);
       }
-      if (power_ != 0) {
-        output.writeInt32(3, power_);
+      if (power_ != 0L) {
+        output.writeInt64(3, power_);
       }
-      if (model_ != 0) {
-        output.writeInt32(4, model_);
+      if (model_ != 0L) {
+        output.writeInt64(4, model_);
+      }
+      if (owner_ != null) {
+        output.writeMessage(5, getOwner());
       }
       unknownFields.writeTo(output);
     }
@@ -5015,20 +5073,24 @@ public final class CarService {
       if (size != -1) return size;
 
       size = 0;
-      if (registartionNumber_ != 0) {
+      if (registartionNumber_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, registartionNumber_);
+          .computeInt64Size(1, registartionNumber_);
       }
       if (!getBrandBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, brand_);
       }
-      if (power_ != 0) {
+      if (power_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, power_);
+          .computeInt64Size(3, power_);
       }
-      if (model_ != 0) {
+      if (model_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, model_);
+          .computeInt64Size(4, model_);
+      }
+      if (owner_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getOwner());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5053,6 +5115,11 @@ public final class CarService {
           != other.getPower()) return false;
       if (getModel()
           != other.getModel()) return false;
+      if (hasOwner() != other.hasOwner()) return false;
+      if (hasOwner()) {
+        if (!getOwner()
+            .equals(other.getOwner())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5065,13 +5132,20 @@ public final class CarService {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REGISTARTIONNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegistartionNumber();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegistartionNumber());
       hash = (37 * hash) + BRAND_FIELD_NUMBER;
       hash = (53 * hash) + getBrand().hashCode();
       hash = (37 * hash) + POWER_FIELD_NUMBER;
-      hash = (53 * hash) + getPower();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPower());
       hash = (37 * hash) + MODEL_FIELD_NUMBER;
-      hash = (53 * hash) + getModel();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getModel());
+      if (hasOwner()) {
+        hash = (37 * hash) + OWNER_FIELD_NUMBER;
+        hash = (53 * hash) + getOwner().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5205,14 +5279,20 @@ public final class CarService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        registartionNumber_ = 0;
+        registartionNumber_ = 0L;
 
         brand_ = "";
 
-        power_ = 0;
+        power_ = 0L;
 
-        model_ = 0;
+        model_ = 0L;
 
+        if (ownerBuilder_ == null) {
+          owner_ = null;
+        } else {
+          owner_ = null;
+          ownerBuilder_ = null;
+        }
         return this;
       }
 
@@ -5243,6 +5323,11 @@ public final class CarService {
         result.brand_ = brand_;
         result.power_ = power_;
         result.model_ = model_;
+        if (ownerBuilder_ == null) {
+          result.owner_ = owner_;
+        } else {
+          result.owner_ = ownerBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -5291,18 +5376,21 @@ public final class CarService {
 
       public Builder mergeFrom(ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest other) {
         if (other == ma.enset.registrationservice.web.grpc.stub.CarService.SaveCarRequest.getDefaultInstance()) return this;
-        if (other.getRegistartionNumber() != 0) {
+        if (other.getRegistartionNumber() != 0L) {
           setRegistartionNumber(other.getRegistartionNumber());
         }
         if (!other.getBrand().isEmpty()) {
           brand_ = other.brand_;
           onChanged();
         }
-        if (other.getPower() != 0) {
+        if (other.getPower() != 0L) {
           setPower(other.getPower());
         }
-        if (other.getModel() != 0) {
+        if (other.getModel() != 0L) {
           setModel(other.getModel());
+        }
+        if (other.hasOwner()) {
+          mergeOwner(other.getOwner());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5333,32 +5421,32 @@ public final class CarService {
         return this;
       }
 
-      private int registartionNumber_ ;
+      private long registartionNumber_ ;
       /**
-       * <code>int32 registartionNumber = 1;</code>
+       * <code>int64 registartionNumber = 1;</code>
        * @return The registartionNumber.
        */
-      public int getRegistartionNumber() {
+      public long getRegistartionNumber() {
         return registartionNumber_;
       }
       /**
-       * <code>int32 registartionNumber = 1;</code>
+       * <code>int64 registartionNumber = 1;</code>
        * @param value The registartionNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setRegistartionNumber(int value) {
+      public Builder setRegistartionNumber(long value) {
         
         registartionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 registartionNumber = 1;</code>
+       * <code>int64 registartionNumber = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegistartionNumber() {
         
-        registartionNumber_ = 0;
+        registartionNumber_ = 0L;
         onChanged();
         return this;
       }
@@ -5439,64 +5527,183 @@ public final class CarService {
         return this;
       }
 
-      private int power_ ;
+      private long power_ ;
       /**
-       * <code>int32 power = 3;</code>
+       * <code>int64 power = 3;</code>
        * @return The power.
        */
-      public int getPower() {
+      public long getPower() {
         return power_;
       }
       /**
-       * <code>int32 power = 3;</code>
+       * <code>int64 power = 3;</code>
        * @param value The power to set.
        * @return This builder for chaining.
        */
-      public Builder setPower(int value) {
+      public Builder setPower(long value) {
         
         power_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 power = 3;</code>
+       * <code>int64 power = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPower() {
         
-        power_ = 0;
+        power_ = 0L;
         onChanged();
         return this;
       }
 
-      private int model_ ;
+      private long model_ ;
       /**
-       * <code>int32 model = 4;</code>
+       * <code>int64 model = 4;</code>
        * @return The model.
        */
-      public int getModel() {
+      public long getModel() {
         return model_;
       }
       /**
-       * <code>int32 model = 4;</code>
+       * <code>int64 model = 4;</code>
        * @param value The model to set.
        * @return This builder for chaining.
        */
-      public Builder setModel(int value) {
+      public Builder setModel(long value) {
         
         model_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 model = 4;</code>
+       * <code>int64 model = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearModel() {
         
-        model_ = 0;
+        model_ = 0L;
         onChanged();
         return this;
+      }
+
+      private ma.enset.registrationservice.web.grpc.stub.CarService.Owner owner_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          ma.enset.registrationservice.web.grpc.stub.CarService.Owner, ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder, ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder> ownerBuilder_;
+      /**
+       * <code>.Owner owner = 5;</code>
+       * @return Whether the owner field is set.
+       */
+      public boolean hasOwner() {
+        return ownerBuilder_ != null || owner_ != null;
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       * @return The owner.
+       */
+      public ma.enset.registrationservice.web.grpc.stub.CarService.Owner getOwner() {
+        if (ownerBuilder_ == null) {
+          return owner_ == null ? ma.enset.registrationservice.web.grpc.stub.CarService.Owner.getDefaultInstance() : owner_;
+        } else {
+          return ownerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      public Builder setOwner(ma.enset.registrationservice.web.grpc.stub.CarService.Owner value) {
+        if (ownerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          owner_ = value;
+          onChanged();
+        } else {
+          ownerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      public Builder setOwner(
+          ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder builderForValue) {
+        if (ownerBuilder_ == null) {
+          owner_ = builderForValue.build();
+          onChanged();
+        } else {
+          ownerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      public Builder mergeOwner(ma.enset.registrationservice.web.grpc.stub.CarService.Owner value) {
+        if (ownerBuilder_ == null) {
+          if (owner_ != null) {
+            owner_ =
+              ma.enset.registrationservice.web.grpc.stub.CarService.Owner.newBuilder(owner_).mergeFrom(value).buildPartial();
+          } else {
+            owner_ = value;
+          }
+          onChanged();
+        } else {
+          ownerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      public Builder clearOwner() {
+        if (ownerBuilder_ == null) {
+          owner_ = null;
+          onChanged();
+        } else {
+          owner_ = null;
+          ownerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      public ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder getOwnerBuilder() {
+        
+        onChanged();
+        return getOwnerFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      public ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder getOwnerOrBuilder() {
+        if (ownerBuilder_ != null) {
+          return ownerBuilder_.getMessageOrBuilder();
+        } else {
+          return owner_ == null ?
+              ma.enset.registrationservice.web.grpc.stub.CarService.Owner.getDefaultInstance() : owner_;
+        }
+      }
+      /**
+       * <code>.Owner owner = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          ma.enset.registrationservice.web.grpc.stub.CarService.Owner, ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder, ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder> 
+          getOwnerFieldBuilder() {
+        if (ownerBuilder_ == null) {
+          ownerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              ma.enset.registrationservice.web.grpc.stub.CarService.Owner, ma.enset.registrationservice.web.grpc.stub.CarService.Owner.Builder, ma.enset.registrationservice.web.grpc.stub.CarService.OwnerOrBuilder>(
+                  getOwner(),
+                  getParentForChildren(),
+                  isClean());
+          owner_ = null;
+        }
+        return ownerBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -6224,25 +6431,26 @@ public final class CarService {
   static {
     java.lang.String[] descriptorData = {
       "\n\020CarService.proto\"q\n\003Car\022\n\n\002id\030\001 \001(\003\022\032\n" +
-      "\022registartionNumber\030\002 \001(\005\022\r\n\005brand\030\003 \001(\t" +
-      "\022\r\n\005power\030\004 \001(\005\022\r\n\005model\030\005 \001(\005\022\025\n\005owner\030" +
+      "\022registartionNumber\030\002 \001(\003\022\r\n\005brand\030\003 \001(\t" +
+      "\022\r\n\005power\030\004 \001(\003\022\r\n\005model\030\005 \001(\003\022\025\n\005owner\030" +
       "\006 \001(\0132\006.Owner\"=\n\005Owner\022\n\n\002id\030\001 \001(\003\022\014\n\004na" +
       "me\030\002 \001(\t\022\014\n\004date\030\003 \001(\t\022\014\n\004mail\030\004 \001(\t\"\033\n\r" +
       "GetCarRequest\022\n\n\002id\030\001 \001(\003\"3\n\025GetCarRegis" +
-      "treRequest\022\032\n\022registartionNumber\030\001 \001(\005\"#" +
+      "treRequest\022\032\n\022registartionNumber\030\001 \001(\003\"#" +
       "\n\016GetCarResponse\022\021\n\003car\030\001 \001(\0132\004.Car\"\023\n\021G" +
       "etAllCarsRequest\"\'\n\022GetAllCarsResponse\022\021" +
-      "\n\003car\030\001 \003(\0132\004.Car\"Y\n\016SaveCarRequest\022\032\n\022r" +
-      "egistartionNumber\030\001 \001(\005\022\r\n\005brand\030\002 \001(\t\022\r" +
-      "\n\005power\030\003 \001(\005\022\r\n\005model\030\004 \001(\005\"$\n\017SaveCarR" +
-      "esponse\022\021\n\003car\030\001 \001(\0132\004.Car2\336\001\n\016CarGrpcSe" +
-      "rvice\022)\n\006getCar\022\016.GetCarRequest\032\017.GetCar" +
-      "Response\022;\n\020getCarByRegistre\022\026.GetCarReg" +
-      "istreRequest\032\017.GetCarResponse\0226\n\013getList" +
-      "Cars\022\022.GetAllCarsRequest\032\023.GetAllCarsRes" +
-      "ponse\022,\n\007saveCar\022\017.SaveCarRequest\032\020.Save" +
-      "CarResponseB,\n*ma.enset.registrationserv" +
-      "ice.web.grpc.stubb\006proto3"
+      "\n\003car\030\001 \003(\0132\004.Car\"p\n\016SaveCarRequest\022\032\n\022r" +
+      "egistartionNumber\030\001 \001(\003\022\r\n\005brand\030\002 \001(\t\022\r" +
+      "\n\005power\030\003 \001(\003\022\r\n\005model\030\004 \001(\003\022\025\n\005owner\030\005 " +
+      "\001(\0132\006.Owner\"$\n\017SaveCarResponse\022\021\n\003car\030\001 " +
+      "\001(\0132\004.Car2\336\001\n\016CarGrpcService\022)\n\006getCar\022\016" +
+      ".GetCarRequest\032\017.GetCarResponse\022;\n\020getCa" +
+      "rByRegistre\022\026.GetCarRegistreRequest\032\017.Ge" +
+      "tCarResponse\0226\n\013getListCars\022\022.GetAllCars" +
+      "Request\032\023.GetAllCarsResponse\022,\n\007saveCar\022" +
+      "\017.SaveCarRequest\032\020.SaveCarResponseB,\n*ma" +
+      ".enset.registrationservice.web.grpc.stub" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6295,7 +6503,7 @@ public final class CarService {
     internal_static_SaveCarRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SaveCarRequest_descriptor,
-        new java.lang.String[] { "RegistartionNumber", "Brand", "Power", "Model", });
+        new java.lang.String[] { "RegistartionNumber", "Brand", "Power", "Model", "Owner", });
     internal_static_SaveCarResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_SaveCarResponse_fieldAccessorTable = new

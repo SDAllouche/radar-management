@@ -12,4 +12,7 @@ public interface ViolationService {
     public ViolationResponseDTO getViolation(long id);
 
     public ViolationResponseDTO addViolation(ViolationRequestDTO radarRequestDTO);
+
+    public ViolationResponseDTO updateViolation(ViolationRequestDTO radarRequestDTO, long id);
+    public void deleteViolation(long id);
 }

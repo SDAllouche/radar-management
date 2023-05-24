@@ -39,5 +39,14 @@ public class ViolationRestController {
         return violationService.addViolation(violationRequestDTO);
     }
 
+    @PutMapping("/violations/{id}")
+    public ViolationResponseDTO update(@RequestBody ViolationRequestDTO violationRequestDTO,@PathVariable long id){
+        return violationService.updateViolation(violationRequestDTO,id);
+    }
+
+    @DeleteMapping("/violations/{id}")
+    public void delete(@PathVariable long id){
+        violationService.deleteViolation(id);
+    }
 
 }

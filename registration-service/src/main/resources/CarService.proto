@@ -41,6 +41,7 @@ message SaveCarRequest {
   string brand=2;
   int64 power=3;
   int64 model=4;
+  Owner owner=5;
 }
 message SaveCarResponse {
   Car car=1;
