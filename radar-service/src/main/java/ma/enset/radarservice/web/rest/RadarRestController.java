@@ -52,20 +52,14 @@ public class RadarRestController {
         return radarService.addRadar(radarRequestDTO);
     }
 
-    @PostMapping("/radars/{id}/violation")
-    public Violation generateViolation(@PathVariable long id,@RequestBody int number){
-        Car car =carService.carByRegistreNumber(number);
-        Radar radar=radarRepository.findById(id).orElseThrow(()-> new RuntimeException(String.format("Radar %s not found",id)));
-        Violation violation= Violation.builder()
-                .radarID(radar.getId())
-                .registrationNumber(car.getRegistartionNumber())
-                .carSpeed(car.getPower())
-                .date(new Date())
-                .maxSpeed(radar.getMaxSpeed())
-                .penalty(new Random().nextInt(100,1000))
-                .build();
+    @PutMapping("/radars/{id}")
+    public RadarResponseDTO update(@RequestBody RadarRequestDTO radarRequestDTO,@PathVariable long id){
+        return radarService.updateRadar(radarRequestDTO,id);
+    }
 
-        return violationService.generateViolation(violation);
+    @DeleteMapping("/radars/{id}")
+    public void delete(@PathVariable long id){
+        radarService.delete(id);
     }
 
 

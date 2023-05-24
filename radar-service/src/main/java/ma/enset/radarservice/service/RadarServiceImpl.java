@@ -56,4 +56,23 @@ public class RadarServiceImpl implements RadarService {
 
         return radarResponseDTO;
     }
+
+    @Override
+    public RadarResponseDTO updateRadar(RadarRequestDTO radarRequestDTO, long id) {
+        Radar radar=radarRepository.findById(id).orElseThrow();
+        radar.setMaxSpeed(radarRequestDTO.getMaxSpeed());
+        radar.setLatitude(radarRequestDTO.getLatitude());
+        radar.setLongitude(radarRequestDTO.getLongitude());
+        Radar savedRadar=radarRepository.save(radar);
+        RadarResponseDTO radarResponseDTO=radarMapper.fromRadar(savedRadar);
+
+        return radarResponseDTO;
+    }
+
+    @Override
+    public void delete(long id) {
+        radarRepository.deleteById(id);
+    }
+
+
 }

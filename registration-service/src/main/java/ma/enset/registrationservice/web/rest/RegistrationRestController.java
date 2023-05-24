@@ -2,7 +2,6 @@ package ma.enset.registrationservice.web.rest;
 
 import ma.enset.registrationservice.dto.CarRequestDTO;
 import ma.enset.registrationservice.dto.CarResponseDTO;
-import ma.enset.registrationservice.entities.Car;
 import ma.enset.registrationservice.entities.Owner;
 import ma.enset.registrationservice.repositories.CarRepository;
 import ma.enset.registrationservice.repositories.OwnerRepository;
@@ -35,7 +34,7 @@ public class RegistrationRestController {
     }
 
     @GetMapping("/cars/{id}")
-    public CarResponseDTO CarById(@PathVariable long id){
+    public CarResponseDTO CarByRegistration(@PathVariable long id){
         return registrationService.getCar(id);
     }
 
@@ -56,7 +55,7 @@ public class RegistrationRestController {
     }
 
     @GetMapping("/cars/registration/{number}")
-    public CarResponseDTO CarById(@PathVariable int number){
+    public CarResponseDTO CarByRegistration(@PathVariable int number){
         return registrationService.getCarByRegistartionNumber(number);
     }
 
