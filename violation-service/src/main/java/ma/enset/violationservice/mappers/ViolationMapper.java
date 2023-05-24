@@ -3,6 +3,7 @@ package ma.enset.violationservice.mappers;
 
 import ma.enset.violationservice.dto.ViolationResponseDTO;
 import ma.enset.violationservice.entities.Violation;
+import ma.enset.violationservice.web.grpc.stub.ViolationService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class ViolationMapper {
         return violationResponseDTO;
     }
 
-    /*public RadarService.Radar fromRadarGrpc(Radar radar){
-        return modelMapper.map(radar,RadarService.Radar.Builder.class).build();
-    }*/
+    public ViolationService.Violation fromViolationGrpc(Violation violation) {
+        return modelMapper.map(violation,ViolationService.Violation.Builder.class).build();
+    }
 }

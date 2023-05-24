@@ -13,12 +13,12 @@
         <module name="registration-service" />
         <module name="radar-service" />
         <module name="eureka-discovery" />
-        <module name="grpc-client-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="conifg-service" target="17" />
       <module name="discovery-service" target="17" />
+      <module name="grpc-client-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

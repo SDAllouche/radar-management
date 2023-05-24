@@ -16,7 +16,7 @@ service ViolationGrpcService {
   rpc getViolation(GetViolationRequest) returns (GetViolationResponse);
   rpc getListViolations(GetAllViolationsRequest) returns ( GetAllViolationsResponse);
   rpc saveViolation(SaveViolationRequest) returns (SaveViolationResponse);
-  rpc generateViolation(generateViolationRequest) returns (generateViolationResponse);
+  rpc generateViolation(GenerateViolationRequest) returns (GenerateViolationResponse);
 }
 message GetViolationRequest{
   int64 id=1;
@@ -29,22 +29,21 @@ message GetAllViolationsResponse{
   repeated  Violation violation = 1;
 }
 message SaveViolationRequest {
-  string date=1;
-  int64 radarID=2;
-  int64 registrationNumber=3;
-  int32 carSpeed=4;
-  int64 maxSpeed=5;
-  double penalty=6;
+  int64 radarID=1;
+  int64 registrationNumber=2;
+  int32 carSpeed=3;
+  int64 maxSpeed=4;
+  double penalty=5;
 }
 message SaveViolationResponse {
   Violation violation=1;
 }
 
-message generateViolationRequest {
+message GenerateViolationRequest {
   int64 radarID=1;
   int64 registrationNumber=2;
   int32 carSpeed=3;
 }
-message generateViolationResponse {
+message GenerateViolationResponse {
   Violation violation=1;
 }

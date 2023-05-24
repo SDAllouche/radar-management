@@ -1,5 +1,5 @@
 syntax ="proto3";
-option java_package="ma.enset.grpcclientservice.stub";
+option java_package="ma.enset.radarsimulationapp.stub";
 
 message Violation {
   int64 id=1;
