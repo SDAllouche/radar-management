@@ -16,6 +16,6 @@ public class CarRequestDTO {
     private String brand;
     private int power;
     private int model;
-    private Owner owner;
+    private OwnerRequestDTO owner;
 
 }

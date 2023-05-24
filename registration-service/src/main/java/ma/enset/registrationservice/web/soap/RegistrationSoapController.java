@@ -41,6 +41,16 @@ public class RegistrationSoapController {
         return registrationService.addCar(carRequestDTO);
     }
 
+    @WebMethod(operationName = "updateCar")
+    public CarResponseDTO update(@WebParam(name = "car") CarRequestDTO carRequestDTO,@WebParam(name = "id") long id){
+        return registrationService.updateCar(carRequestDTO, id);
+    }
+
+    @WebMethod(operationName = "deleteCar")
+    public void delete(@WebParam(name = "id") long id){
+        registrationService.deletCar(id);
+    }
+
     @WebMethod(operationName = "getAllOwners")
     public List<Owner> Owners(){
         return ownerRepository.findAll();

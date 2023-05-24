@@ -46,6 +46,8 @@ public class RegistrationGraphqlController {
         return registrationService.addCar(carRequestDTO);
     }
 
+
+
     @QueryMapping
     public List<Owner> ownersList(){
         return  ownerRepository.findAll();

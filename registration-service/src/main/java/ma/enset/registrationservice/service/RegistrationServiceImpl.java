@@ -51,7 +51,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public CarResponseDTO addCar(CarRequestDTO carRequestDTO) {
-        Owner owner=carRequestDTO.getOwner();
+        Owner owner=ownerMapper.fromOwnerRequestDTO(carRequestDTO.getOwner());
         if (owner.getDate() == null) {
             owner.setDate(new Date());
         }
@@ -76,5 +76,26 @@ public class RegistrationServiceImpl implements RegistrationService {
         Car car = carRepository.getCarByRegistartionNumber(number);
         CarResponseDTO carResponseDTO=carMapper.fromCar(car);
         return carResponseDTO;
+    }
+
+    @Override
+    public CarResponseDTO updateCar(CarRequestDTO carRequestDTO,long id) {
+
+        Car car =carRepository.findById(id).orElseThrow();
+        Owner owner=ownerMapper.fromOwnerRequestDTO(carRequestDTO.getOwner());
+        car.setRegistartionNumber(carRequestDTO.getRegistartionNumber());
+        car.setBrand(carRequestDTO.getBrand());
+        car.setPower(carRequestDTO.getPower());
+        car.setModel(carRequestDTO.getModel());
+        car.setOwner(owner);
+        Car savedCar=carRepository.save(car);
+        CarResponseDTO carResponseDTO=carMapper.fromCar(savedCar);
+
+        return carResponseDTO;
+    }
+
+    @Override
+    public void deletCar(long id) {
+        carRepository.deleteById(id);
     }
 }

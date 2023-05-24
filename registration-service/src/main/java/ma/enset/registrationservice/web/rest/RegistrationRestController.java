@@ -45,6 +45,16 @@ public class RegistrationRestController {
         return registrationService.addCar(carRequestDTO);
     }
 
+    @PutMapping("/cars/{id}")
+    public CarResponseDTO update(@RequestBody CarRequestDTO carRequestDTO,@PathVariable long id){
+        return registrationService.updateCar(carRequestDTO,id);
+    }
+
+    @DeleteMapping("/cars/{id}")
+    public void delete(@PathVariable long id){
+        registrationService.deletCar(id);
+    }
+
     @GetMapping("/cars/registration/{number}")
     public CarResponseDTO CarById(@PathVariable int number){
         return registrationService.getCarByRegistartionNumber(number);
