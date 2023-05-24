@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="violation-service" />
+        <module name="radar-simulation-app" />
+        <module name="gateway-service" />
         <module name="registration-service" />
         <module name="radar-service" />
-        <module name="violation-service" />
         <module name="eureka-discovery" />
-        <module name="gateway-service" />
         <module name="grpc-client-service" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="gateway-service" options="-parameters" />
       <module name="grpc-client-service" options="-parameters" />
       <module name="radar-service" options="-parameters" />
+      <module name="radar-simulation-app" options="-parameters" />
       <module name="registration-service" options="-parameters" />
       <module name="violation-service" options="-parameters" />
     </option>

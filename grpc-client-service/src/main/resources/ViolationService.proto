@@ -1,5 +1,5 @@
 syntax ="proto3";
-option java_package="ma.enset.violationservice.web.grpc.stub";
+option java_package="ma.enset.grpcclientservice.stub";
 
 message Violation {
   int64 id=1;

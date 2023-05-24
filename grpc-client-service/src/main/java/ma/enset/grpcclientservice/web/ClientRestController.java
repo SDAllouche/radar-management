@@ -13,24 +13,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@GrpcClientBean(
-        clazz = RadarGrpcServiceGrpc.RadarGrpcServiceBlockingStub.class,
-        beanName = "blockingStub",
-        client = @GrpcClient("radar")
-)
 
 
 @RestController
 @RequestMapping("/rest-api")
 public class ClientRestController {
 
-    //@GrpcClient("radar")
-    //private RadarGrpcServiceGrpc.RadarGrpcServiceBlockingStub blockingStub;
 
     @Autowired
     private ViolationMapper mapper;
 
-    @PostMapping("/violation")
+    @PostMapping("/violations")
     public ViolationResponseDTO generateViolation(@RequestBody Map<String,Object>  map){
 
         ManagedChannel managedChannel= ManagedChannelBuilder.forAddress("localhost",9998)
