@@ -51,7 +51,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public CarResponseDTO addCar(CarRequestDTO carRequestDTO) {
-        Owner owner=ownerMapper.fromOwnerRequestDTO(carRequestDTO.getOwner());
+        Owner owner=carRequestDTO.getOwner();
         if (owner.getDate() == null) {
             owner.setDate(new Date());
         }
@@ -82,7 +82,12 @@ public class RegistrationServiceImpl implements RegistrationService {
     public CarResponseDTO updateCar(CarRequestDTO carRequestDTO,long id) {
 
         Car car =carRepository.findById(id).orElseThrow();
-        Owner owner=ownerMapper.fromOwnerRequestDTO(carRequestDTO.getOwner());
+        Owner owner=ownerRepository.findById(carRequestDTO.getOwner().getId()).orElseThrow();
+        owner.setDate(carRequestDTO.getOwner().getDate());
+        owner.setName(carRequestDTO.getOwner().getName());
+        owner.setMail(carRequestDTO.getOwner().getMail());
+        owner.setCars(car.getOwner().getCars());
+        Owner savedOwner=ownerRepository.save(owner);
         car.setRegistartionNumber(carRequestDTO.getRegistartionNumber());
         car.setBrand(carRequestDTO.getBrand());
         car.setPower(carRequestDTO.getPower());

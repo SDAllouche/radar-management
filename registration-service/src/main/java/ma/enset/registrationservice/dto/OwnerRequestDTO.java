@@ -17,4 +17,5 @@ public class OwnerRequestDTO {
     private String name;
     private Date date;
     private String mail;
+    private List<Car> cars;
 }
