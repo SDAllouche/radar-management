@@ -1,13 +1,12 @@
 package ma.enset.violationservice.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.enset.violationservice.model.Car;
+import ma.enset.violationservice.model.Radar;
 
 import java.util.Date;
 
@@ -25,4 +24,8 @@ public class Violation {
     private int carSpeed;
     private int maxSpeed;
     private double penalty;
+    @Transient
+    private  Car car;
+    @Transient
+    private Radar radar;
 }
