@@ -34,22 +34,33 @@ public class RadarSimulationAppApplication {
 			ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("localhost", 9999)
 					.usePlaintext().build();
 
-			ViolationGrpcServiceGrpc.ViolationGrpcServiceStub stub=ViolationGrpcServiceGrpc.newStub(managedChannel);
-			//StreamObserver<ViolationService.generateViolationRequest> streamObserver= stub.generateViolation();
+			//ViolationGrpcServiceGrpc.ViolationGrpcServiceStub stub=ViolationGrpcServiceGrpc.newStub(managedChannel);
 
-			for (int i=0;i<5 ; i++) {
+			ViolationGrpcServiceGrpc.ViolationGrpcServiceBlockingStub blockingStub=ViolationGrpcServiceGrpc.newBlockingStub(managedChannel);
 
-				List<Car> cars=carService.getAllCars();
-				Car car =cars.get(new Random().nextInt(cars.size()));
-				List<Radar> radars=radarService.getAllRadars();
-				Radar radar=radars.get(new Random().nextInt(radars.size()));
+			List<Car> cars=carService.getAllCars();
+			List<Radar> radars=radarService.getAllRadars();
 
-				ViolationService.generateViolationRequest violation = ViolationService.generateViolationRequest.newBuilder()
-						.setRadarID(radar.getId())
-						.setCarSpeed(radar.getMaxSpeed()+new Random().nextInt(10,100))
-						.setRegistrationNumber(car.getRegistartionNumber())
-						.build();
+			try {
+				while (true) {
 
+					Car car =cars.get(new Random().nextInt(cars.size()));
+					Radar radar=radars.get(new Random().nextInt(radars.size()));
+
+					ViolationService.generateViolationRequest violation = ViolationService.generateViolationRequest.newBuilder()
+							.setRadarID(radar.getId())
+							.setCarSpeed(radar.getMaxSpeed()+new Random().nextInt(10,100))
+							.setRegistrationNumber(car.getRegistartionNumber())
+							.build();
+
+					ViolationService.generateViolationResponse response=blockingStub.generateViolation(violation);
+
+
+
+					Thread.sleep(60 * 1000 * 3);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		};
 	}
