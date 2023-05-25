@@ -7,13 +7,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let p of violations._embedded.violations">
+    <tr *ngFor="let p of violations">
       <td>{{p.id}}</td>
       <td>{{p.radarID}}</td>
       <td>{{p.registrationNumber}}</td>
       <td>{{p.carSpeed}}</td>
       <td>{{p.maxSpeed}}</td>
-      <td>{{p.date}}</td>
+      <td>{{p.date | date :'yyyy-MM-dd hh:mm:ss'}}</td>
       <td>{{p.penalty}}</td>
     </tr>
     </tbody>

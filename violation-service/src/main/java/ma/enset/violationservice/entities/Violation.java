@@ -24,8 +24,4 @@ public class Violation {
     private int carSpeed;
     private int maxSpeed;
     private double penalty;
-    @Transient
-    private  Car car;
-    @Transient
-    private Radar radar;
-}
+    }

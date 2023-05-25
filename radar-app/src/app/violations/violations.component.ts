@@ -14,7 +14,7 @@ export class ViolationsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.http.get("http://localhost:8888/VIOLATION-SERVICE/violations").subscribe({
+    this.http.get("http://localhost:8888/VIOLATION-SERVICE/rest-api/violations").subscribe({
       next : (data) =>{
         this.violations=data;
       },

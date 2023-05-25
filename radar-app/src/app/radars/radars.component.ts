@@ -14,7 +14,7 @@ export class RadarsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.http.get("http://localhost:8888/RADAR-SERVICE/radars").subscribe({
+    this.http.get("http://localhost:8888/RADAR-SERVICE/rest-api/radars").subscribe({
       next : (data) =>{
         this.radars=data;
       },

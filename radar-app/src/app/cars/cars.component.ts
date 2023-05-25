@@ -13,7 +13,7 @@ export class CarsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.http.get("http://localhost:8888/REGISTRATION-SERVICE/cars").subscribe({
+    this.http.get("http://localhost:8888/REGISTRATION-SERVICE/rest-api/cars").subscribe({
       next : (data) =>{
         this.cars=data;
       },
