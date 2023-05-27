@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarsComponent } from './cars/cars.component';
-import { RadarsComponent } from './radars/radars.component';
-import { ViolationsComponent } from './violations/violations.component';
+import { CarsComponent } from './Page/cars/cars.component';
+import { RadarsComponent } from './Page/radars/radars.component';
+import { ViolationsComponent } from './Page/violations/violations.component';
 import {HttpClientModule} from "@angular/common/http";
-import { OwnersComponent } from './owners/owners.component';
-import { OwnerComponent } from './owner/owner.component';
-import { CarComponent } from './car/car.component';
-import { ViolationComponent } from './violation/violation.component';
+import { OwnersComponent } from './Page/owners/owners.component';
+import { OwnersDetailsComponent } from './Page/owners-details/owners-details.component';
+import { CarsDetailsComponent } from './Page/cars-details/cars-details.component';
+import { ViolationsDetailsComponent } from './Page/violations-details/violations-details.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { ViolationComponent } from './violation/violation.component';
     RadarsComponent,
     ViolationsComponent,
     OwnersComponent,
-    OwnerComponent,
-    CarComponent,
-    ViolationComponent
+    OwnersDetailsComponent,
+    CarsDetailsComponent,
+    ViolationsDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

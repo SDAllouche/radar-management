@@ -60,12 +60,12 @@ public class RegistrationRestController {
     }
 
 
-    @GetMapping("/owners")
+    @GetMapping("/cars/owners")
     public List<Owner> Owners(){
         return ownerRepository.findAll();
     }
 
-    @GetMapping("/owners/{id}")
+    @GetMapping("/cars/owners/{id}")
     public Owner OwnerById(@PathVariable long id){
         return ownerRepository.findById(id).orElseThrow(()-> new RuntimeException(String.format("Owner %s not found",id)));
     }

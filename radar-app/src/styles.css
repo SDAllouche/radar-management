@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+/*.btn-light{
+  width: 110px;
+  height: 45px;
+}
+
+
+.bi-plus-lg{
+  font-size: 1.5em;
+}
+
+.add {
+  margin: 15px;
+  display:flex;
+  justify-content:space-between;
+}*/

@@ -14,7 +14,7 @@ export class OwnersComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.http.get("http://localhost:8888/REGISTRATION-SERVICE/rest-api/owners").subscribe({
+    this.http.get("http://localhost:8888/REGISTRATION-SERVICE/rest-api/cars/owners").subscribe({
       next : (data) =>{
         this.owners=data;
       },

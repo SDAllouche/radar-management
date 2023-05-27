@@ -1,0 +1,54 @@
+<div class="container">
+  <ng-template  #errorTemplate>
+    <div class="text-danger">{{errorMessage}}</div>
+  </ng-template>
+  <div class="add">
+    <h1>Cars List</h1>
+    <button class="btn btn-light rounded-5">
+      <i class="bi bi-plus-lg"></i>
+    </button>
+  </div>
+  <form [formGroup]="searchCarFormGroup" (ngSubmit)="searchCar()">
+    <div class="input-group">
+      <label class="input-group-text bg-white">Registration Number</label>
+      <input type="text" class="form-control" formControlName="keyword">
+      <button class="btn btn-info">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </form>
+  <div class="card" *ngIf="cars; else errorTemplate">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+        <th>Id</th> <th>Registration</th> <th>Brand</th> <th>Power</th><th>Model</th>
+          <th></th><th></th><th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of cars">
+          <td>{{p.id}}</td>
+          <td>{{p.registartionNumber}}</td>
+          <td>{{p.brand}}</td>
+          <td>{{p.power}}</td>
+          <td>{{p.model}}</td>
+          <td>
+            <button class="btn btn-success">Owner</button>
+          </td>
+          <td>
+            <button class="btn btn-info">
+              <i class="bi bi-pen"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteCar(p)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

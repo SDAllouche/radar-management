@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CarsComponent} from "./cars/cars.component";
-import {RadarsComponent} from "./radars/radars.component";
-import {ViolationsComponent} from "./violations/violations.component";
-import {OwnersComponent} from "./owners/owners.component";
+import {CarsComponent} from "./Page/cars/cars.component";
+import {RadarsComponent} from "./Page/radars/radars.component";
+import {ViolationsComponent} from "./Page/violations/violations.component";
+import {OwnersComponent} from "./Page/owners/owners.component";
 
 const routes: Routes = [
   {
