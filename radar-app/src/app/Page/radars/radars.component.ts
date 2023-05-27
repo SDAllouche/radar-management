@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {RadarsService} from "../../services/radars.service";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
+import {Radar} from "../../model/radar-modul";
 
 @Component({
   selector: 'app-radars',
@@ -13,7 +14,7 @@ export class RadarsComponent implements OnInit{
 
   radars:any;
 
-  constructor(private http:HttpClient,private radarService : RadarsService,private router : Router,
+  constructor(private http:HttpClient,private radarService : RadarsService,private route : Router,
               public authService : AuthenticationService) {
   }
 
@@ -28,6 +29,14 @@ export class RadarsComponent implements OnInit{
 
 
   addRadar() {
-    this.router.navigateByUrl("/admin/addRadar")
+    this.route.navigateByUrl("/admin/addRadar")
+  }
+
+  deleteRadar(p: any) {
+
+  }
+
+  updateRadar(id : number) {
+    this.route.navigateByUrl("/admin/updateRadar/"+id)
   }
 }

@@ -9,6 +9,7 @@ import {AdminComponent} from "./Page/admin/admin.component";
 import {AuthorizationGuard} from "./guards/authentication.guard";
 import {NewCarComponent} from "./forms/new-car/new-car.component";
 import {NewRadarComponent} from "./forms/new-radar/new-radar.component";
+import {EditRadarComponent} from "./edit/edit-radar/edit-radar.component";
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
       {path : "radars" , component : RadarsComponent},
       {path : "violations" , component : ViolationsComponent},
       {path : "addCar" , component : NewCarComponent},
-      {path : "addRadar" , component : NewRadarComponent}
+      {path : "addRadar" , component : NewRadarComponent},
+      {path : "updateRadar/:id" , component : EditRadarComponent}
     ]
   }
 ];

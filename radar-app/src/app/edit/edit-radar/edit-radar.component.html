@@ -1,1 +1,27 @@
-<p>edit-radar works!</p>
+<div class="container mt-2">
+  <div class="card col-md-6 offset-3" >
+    <div class="card-header">Update Radar</div>
+    <div class="card-body" >
+      <form [formGroup]="updateRadarFormGroup" (ngSubmit)="updateRadar()">
+        <div class="mb-3">
+          <label class="form-label">Id : {{radarId}}</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Max Speed :</label>
+          <input type="text" formControlName="maxSpeed" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Longitude :</label>
+          <input type="text" formControlName="longitude" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Latitude :</label>
+          <input type="text" formControlName="latitude" class="form-control">
+        </div>
+        <div class="d-grid">
+          <button [disabled]="!this.updateRadarFormGroup.valid" class="btn btn btn-success">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

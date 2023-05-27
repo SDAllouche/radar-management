@@ -17,13 +17,13 @@
       <td>{{p.maxSpeed}}</td>
       <td>{{p.longitude}}</td>
       <td>{{p.latitude}}</td>
-      <td>
-        <button class="btn btn-info">
+      <td *ngIf="authService.hasRole('ADMIN')">
+        <button class="btn btn-info" (click)="updateRadar(p.id)">
           <i class="bi bi-pen"></i>
         </button>
       </td>
-      <td>
-        <button class="btn btn-danger">
+      <td *ngIf="authService.hasRole('ADMIN')">
+        <button class="btn btn-danger" (click)="deleteRadar(p)">
           <i class="bi bi-trash"></i>
         </button>
       </td>
