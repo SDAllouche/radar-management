@@ -17,6 +17,8 @@ import { AdminComponent } from './Page/admin/admin.component';
 import { NewCarComponent } from './forms/new-car/new-car.component';
 import { NewRadarComponent } from './forms/new-radar/new-radar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditRadarComponent } from './edit/edit-radar/edit-radar.component';
+import { EditCarComponent } from './edit/edit-car/edit-car.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminComponent,
     NewCarComponent,
     NewRadarComponent,
+    EditRadarComponent,
+    EditCarComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
