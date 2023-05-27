@@ -4,19 +4,31 @@ import {CarsComponent} from "./Page/cars/cars.component";
 import {RadarsComponent} from "./Page/radars/radars.component";
 import {ViolationsComponent} from "./Page/violations/violations.component";
 import {OwnersComponent} from "./Page/owners/owners.component";
+import {LoginComponent} from "./Page/login/login.component";
+import {AdminComponent} from "./Page/admin/admin.component";
 
 const routes: Routes = [
   {
-    path : "cars" , component : CarsComponent
+    path : "login" , component : LoginComponent
   },
   {
-    path : "owners" , component : OwnersComponent
+    path : "" , component : LoginComponent
   },
   {
-    path : "radars" , component : RadarsComponent
-  },
-  {
-    path : "violations" , component : ViolationsComponent
+    path : "admin" , component : AdminComponent, children : [
+      {
+        path : "cars" , component : CarsComponent
+      },
+      {
+        path : "owners" , component : OwnersComponent
+      },
+      {
+        path : "radars" , component : RadarsComponent
+      },
+      {
+        path : "violations" , component : ViolationsComponent
+      }
+    ]
   }
 ];
 

@@ -12,6 +12,8 @@ import { OwnersDetailsComponent } from './Page/owners-details/owners-details.com
 import { CarsDetailsComponent } from './Page/cars-details/cars-details.component';
 import { ViolationsDetailsComponent } from './Page/violations-details/violations-details.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './Page/login/login.component';
+import { AdminComponent } from './Page/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     OwnersDetailsComponent,
     CarsDetailsComponent,
     ViolationsDetailsComponent,
+    LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
