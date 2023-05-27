@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Cars} from "../../model/car-model";
 import {CarsService} from "../../services/cars.service";
+import {AuthenticationService} from "../../services/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cars',
@@ -14,7 +16,8 @@ export class CarsComponent implements OnInit{
   cars! : Cars[];
   errorMessage! : String;
   searchCarFormGroup! : FormGroup;
-  constructor(private carService :CarsService, private fb :FormBuilder) {
+  constructor(private carService :CarsService, private fb :FormBuilder,public authService : AuthenticationService,
+              private router : Router) {
   }
 
   ngOnInit() {
@@ -46,5 +49,9 @@ export class CarsComponent implements OnInit{
     let conf =confirm("Do you want to delete this car?");
     if(conf==false) return;
     this.carService.deleteCar(car.id).subscribe(()=>this.getAllCars());
+  }
+
+  addCar() {
+    this.router.navigateByUrl("/admin/addCar")
   }
 }

@@ -4,7 +4,7 @@
   </ng-template>
   <div class="add">
     <h1>Cars List</h1>
-    <button class="btn btn-light rounded-5">
+    <button class="btn btn-light rounded-5" (click)="addCar()">
       <i class="bi bi-plus-lg"></i>
     </button>
   </div>
@@ -23,7 +23,7 @@
         <thead>
         <tr>
         <th>Id</th> <th>Registration</th> <th>Brand</th> <th>Power</th><th>Model</th>
-          <th></th><th></th><th></th>
+          <th></th><th *ngIf="authService.hasRole('ADMIN')"></th><th *ngIf="authService.hasRole('ADMIN')"></th>
         </tr>
         </thead>
         <tbody>
@@ -36,12 +36,12 @@
           <td>
             <button class="btn btn-success">Owner</button>
           </td>
-          <td>
+          <td *ngIf="authService.hasRole('ADMIN')">
             <button class="btn btn-info">
               <i class="bi bi-pen"></i>
             </button>
           </td>
-          <td>
+          <td *ngIf="authService.hasRole('ADMIN')">
             <button class="btn btn-danger" (click)="deleteCar(p)">
               <i class="bi bi-trash"></i>
             </button>

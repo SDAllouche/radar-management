@@ -11,9 +11,12 @@ import { OwnersComponent } from './Page/owners/owners.component';
 import { OwnersDetailsComponent } from './Page/owners-details/owners-details.component';
 import { CarsDetailsComponent } from './Page/cars-details/cars-details.component';
 import { ViolationsDetailsComponent } from './Page/violations-details/violations-details.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './Page/login/login.component';
 import { AdminComponent } from './Page/admin/admin.component';
+import { NewCarComponent } from './forms/new-car/new-car.component';
+import { NewRadarComponent } from './forms/new-radar/new-radar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,12 +30,15 @@ import { AdminComponent } from './Page/admin/admin.component';
     ViolationsDetailsComponent,
     LoginComponent,
     AdminComponent,
+    NewCarComponent,
+    NewRadarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

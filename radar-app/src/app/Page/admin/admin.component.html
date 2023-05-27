@@ -18,6 +18,19 @@
         <a class="nav-link" routerLink="/admin/violations">Violation</a>
       </li>
     </ul>
+    <ul class="navbar-nav">
+      <li>
+        <a >
+          {{authService.authenticatedUser!.username}}
+        </a>
+      </li>
+      <li>
+        <a class="btn nav-link" (click)="logout()">
+          <i class="bi bi-box-arrow-down-right"></i>
+        </a>
+      </li>
+
+    </ul>
   </div>
 </nav>
 

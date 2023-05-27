@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {RadarsService} from "../../services/radars.service";
+import {Router} from "@angular/router";
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-radars',
@@ -10,7 +13,8 @@ export class RadarsComponent implements OnInit{
 
   radars:any;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private radarService : RadarsService,private router : Router,
+              public authService : AuthenticationService) {
   }
 
   ngOnInit() {
@@ -23,4 +27,7 @@ export class RadarsComponent implements OnInit{
   }
 
 
+  addRadar() {
+    this.router.navigateByUrl("/admin/addRadar")
+  }
 }
