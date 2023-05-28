@@ -46,18 +46,26 @@ public class RadarSimulationAppApplication {
 
 					Car car =cars.get(new Random().nextInt(cars.size()));
 					Radar radar=radars.get(new Random().nextInt(radars.size()));
+					int speed =radar.getMaxSpeed()+new Random().nextInt(10,100);
 
 					ViolationService.generateViolationRequest violation = ViolationService.generateViolationRequest.newBuilder()
 							.setRadarID(radar.getId())
-							.setCarSpeed(radar.getMaxSpeed()+new Random().nextInt(10,100))
+							.setCarSpeed(speed)
 							.setRegistrationNumber(car.getRegistartionNumber())
 							.build();
+
+					System.out.println("***** Violation Detected : *****");
+					System.out.println("\t- Radar Id : "+radar.getId());
+					System.out.println("\t- Date : "+new Date());
+					System.out.println("\t- Car Registration Number : "+car.getRegistartionNumber());
+					System.out.println("\t- Car Speed : "+ speed);
 
 					ViolationService.generateViolationResponse response=blockingStub.generateViolation(violation);
 
 
 
 					Thread.sleep(60 * 1000 * 3);
+
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
