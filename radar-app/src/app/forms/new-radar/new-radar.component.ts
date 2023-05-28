@@ -15,9 +15,9 @@ export class NewRadarComponent implements OnInit{
 
   saveRadar() {
     let radar=this.newRadarFormGroup.value;
-    this.radarService.saveProduct(radar).subscribe({
+    this.radarService.saveRadar(radar).subscribe({
       next :(data)=>{
-        alert("Product saved successfully");
+        alert("Radar saved successfully");
         this.newRadarFormGroup.reset();
       }
     });

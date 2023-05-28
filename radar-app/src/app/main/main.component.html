@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="https://github.com/SDAllouche" target="_blank">SDAllouche</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Registration</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/admin/cars">Car</a></li>
+          <li><a class="dropdown-item" routerLink="/admin/owners">Owner</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/radars">Radar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/violations">Violation</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li style="font-size: 16px; margin-right: 10px ;">
+        {{authService.authenticatedUser!.username}}
+      </li>
+      <li>
+        <i class="bi bi-box-arrow-right fa-2x text-light" (click)="logout()"></i>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="../assets/images/registration.jpeg" alt="registration">
+        <div class="card-body">
+          <h3 class="card-title">Registration</h3>
+          <p class="card-text">
+            Registration is a crucial process for vehicle owners. It involves registering the vehicle with the government authority responsible
+            for motor vehicle administration. During registration, information such as the make, model, and VIN is recorded, along with the
+            owner's details. This process ensures that vehicles can be identified and traced, assists law enforcement, and facilitates taxation
+            and insurance procedures. By registering your car, you comply with legal requirements and contribute to road safety and organization.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="../assets/images/radar.jpeg" alt="radar">
+        <div class="card-body">
+          <h3 class="card-title">Radar</h3>
+          <p class="card-text">
+            Radar is a technology that uses radio waves to measure the speed of moving objects. In transportation, radar is commonly used to
+            monitor vehicle speeds. It helps law enforcement enforce speed limits, promoting road safety. Radar systems have evolved to be
+            accurate and reliable, even in heavy traffic. By utilizing radar, authorities can effectively regulate speeds and ensure safer roads.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="../assets/images/violation.jpeg" alt="violation">
+        <div class="card-body">
+          <h3 class="card-title">Violation</h3>
+          <p class="card-text">
+            Violation occurs when a vehicle exceeds the speed limit detected by a radar device. It is a risky behavior that endangers the
+            driver and others on the road. Radar technology allows law enforcement to measure and record these violations. Depending on the
+            severity, penalties for radar violations may include fines, license points, or driving courses. By enforcing radar violations,
+            authorities discourage reckless driving and create a responsible driving culture, ultimately enhancing road safety.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

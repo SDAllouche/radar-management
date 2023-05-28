@@ -9,8 +9,7 @@ export class AuthenticationService {
   private users : User[]=[];
   public authenticatedUser : User | undefined;
   constructor() {
-    this.users.push({id : 1,username:"user1",password :"1234","roles":['USER']});
-    this.users.push({id : 2,username:"user2",password :"1234","roles":['USER']})
+    this.users.push({id : 1,username:"user",password :"user","roles":['USER']});
     this.users.push({id : 3,username:"admin",password :"admin","roles":['USER',"ADMIN"]});
   }
 

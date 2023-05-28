@@ -20,7 +20,7 @@ export class RadarsService {
     });
   }
 
-  saveProduct(radar: RadarRequest) : Observable<RadarRequest>{
+  saveRadar(radar: RadarRequest) : Observable<RadarRequest>{
     this.http.post<RadarRequest>("http://localhost:8888/RADAR-SERVICE/rest-api/radars",radar);
     this.route.navigateByUrl("/admin/radars")
     return of(radar);

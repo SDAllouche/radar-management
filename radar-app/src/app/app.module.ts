@@ -23,6 +23,7 @@ import { EditOwnerComponent } from './edit/edit-owner/edit-owner.component';
 import { NewOwnerComponent } from './forms/new-owner/new-owner.component';
 import { NewViolationComponent } from './forms/new-violation/new-violation.component';
 import { EditViolationComponent } from './edit/edit-violation/edit-violation.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { EditViolationComponent } from './edit/edit-violation/edit-violation.com
     NewOwnerComponent,
     NewViolationComponent,
     EditViolationComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

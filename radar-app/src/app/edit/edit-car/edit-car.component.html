@@ -1,1 +1,43 @@
-<p>edit-car works!</p>
+<div class="container mt-2">
+  <div class="card col-md-6 offset-3" >
+    <div class="card-header">Update Car</div>
+    <div class="card-body" >
+      <form [formGroup]="updateCarFormGroup" (ngSubmit)="updateCar()">
+        <div class="mb-3">
+          <label class="form-label">Id : {{CarId}}</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Ragistration Number :</label>
+          <input type="text" formControlName="registrationNumber" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Brand :</label>
+          <input type="text" formControlName="brand" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Power :</label>
+          <input type="text" formControlName="power" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Model :</label>
+          <input type="text" formControlName="model" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Owner Name :</label>
+          <input type="text" formControlName="name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Owner Birthday :</label>
+          <input type="Date" formControlName="date" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Owner Email :</label>
+          <input type="text" formControlName="mail" class="form-control">
+        </div>
+        <div class="d-grid">
+          <button [disabled]="!this.updateCarFormGroup.valid" class="btn btn btn-success">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -14,3 +14,11 @@ export interface Owner {
   mail : string;
   cars : Car[];
 }
+
+export interface OwnerRequest {
+  name : string;
+  date : string;
+  mail : string;
+}
+
+

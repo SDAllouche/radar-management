@@ -44,7 +44,7 @@
                   <button class="btn btn-success" (click)="getOwner(p.ownerResponseDTO.id)">Owner</button>
                 </td>
                 <td *ngIf="authService.hasRole('ADMIN')">
-                  <button class="btn btn-info">
+                  <button class="btn btn-info" (click)="updateCar(p.id)">
                     <i class="bi bi-pen"></i>
                   </button>
                 </td>

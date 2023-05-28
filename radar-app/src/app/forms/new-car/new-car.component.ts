@@ -14,27 +14,32 @@ export class NewCarComponent implements OnInit{
   constructor(private fb : FormBuilder, private carService:CarsService) {
   }
   ngOnInit(): void {
-    /*this.newCarFormGroup=this.fb.group({
-      name : this.fb.control(null,[Validators.required, Validators.minLength(5)]),
-      price : this.fb.control(0, [Validators.required]),
-      promoted : this.fb.control(false)
-    });*/
+    this.newCarFormGroup=this.fb.group({
+      registrationNumber : this.fb.control(0,[Validators.required]),
+      brand : this.fb.control(null, [Validators.required]),
+      power : this.fb.control(0,[Validators.required]),
+      model : this.fb.control(0,[Validators.required]),
+      name : this.fb.control(null,[Validators.required]),
+      date : this.fb.control(null,[Validators.required]),
+      mail : this.fb.control(null,[Validators.required]),
+    });
   }
-  handleSaveProduct() {
-    /*let product=this.newCarFormGroup.value;
-    this.carService.saveProduct(product).subscribe({
-      next :(data)=>{
-        alert("Product saved successfully");
-        this.newCarFormGroup.reset();
-      }
-    });*/
-  }
-  getErrorMessage(field:string, error:any):string{
-    if(error['required']){
+
+  getErrorMessage(field:string, errors:any):string{
+    if(errors['required']){
       return field +" is Required";
-    } else if(error['minlength']){
-      return field+" should have at least "+error['minlength']['requiredLength']+" Characters";
+    } else if(errors['minlength']){
+      return field+" should have at least "+errors['minlength']['requiredLength']+" Characters";
     } else return "";
   }
 
+  saveCar() {
+    let car=this.newCarFormGroup.value;
+    this.carService.saveProduct(car).subscribe({
+      next :(data)=>{
+        alert("Car saved successfully");
+        this.newCarFormGroup.reset();
+      }
+    });
+  }
 }

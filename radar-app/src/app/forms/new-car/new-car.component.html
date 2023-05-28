@@ -1,0 +1,47 @@
+<div class="container mt-2">
+  <div class="card col-md-6 offset-3" >
+    <div class="card-header">New Car</div>
+    <div class="card-body" >
+      <form [formGroup]="newCarFormGroup" (ngSubmit)="saveCar()">
+        <div class="mb-3">
+          <label class="form-label">Registration Number :</label>
+          <input type="text" formControlName="registrationNumber" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['registrationNumber'].errors && newCarFormGroup.controls['registrationNumber'].touched" class="text-danger">{{getErrorMessage('registrationNumber',newCarFormGroup.controls['registrationNumber'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Brand :</label>
+          <input type="text" formControlName="brand" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['brand'].errors && newCarFormGroup.controls['brand'].touched" class="text-danger">{{getErrorMessage('brand',newCarFormGroup.controls['brand'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Power :</label>
+          <input type="text" formControlName="power" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['power'].errors && newCarFormGroup.controls['power'].touched" class="text-danger">{{getErrorMessage('power',newCarFormGroup.controls['power'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Model :</label>
+          <input type="text" formControlName="model" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['model'].errors && newCarFormGroup.controls['model'].touched" class="text-danger">{{getErrorMessage('model',newCarFormGroup.controls['model'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Owner Name :</label>
+          <input type="text" formControlName="name" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['name'].errors && newCarFormGroup.controls['name'].touched" class="text-danger">{{getErrorMessage('name',newCarFormGroup.controls['name'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Owner Birthday :</label>
+          <input type="date" formControlName="date" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['date'].errors && newCarFormGroup.controls['date'].touched" class="text-danger">{{getErrorMessage('date',newCarFormGroup.controls['date'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Owner Email :</label>
+          <input type="text" formControlName="mail" class="form-control">
+          <small *ngIf="newCarFormGroup.controls['mail'].errors && newCarFormGroup.controls['mail'].touched" class="text-danger">{{getErrorMessage('mail',newCarFormGroup.controls['mail'].errors)}}</small>
+        </div>
+        <div class="d-grid">
+          <button [disabled]="!this.newCarFormGroup.valid" class="btn btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

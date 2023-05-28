@@ -18,14 +18,13 @@ import {NewOwnerComponent} from "./forms/new-owner/new-owner.component";
 import {EditOwnerComponent} from "./edit/edit-owner/edit-owner.component";
 import {EditViolationComponent} from "./edit/edit-violation/edit-violation.component";
 import {NewViolationComponent} from "./forms/new-violation/new-violation.component";
+import {MainComponent} from "./main/main.component";
 
 const routes: Routes = [
   {
     path : "login" , component : LoginComponent
   },
-  {
-    path : "" , component : LoginComponent
-  },
+  {path : "" , component : MainComponent,canActivate:[AuthorizationGuard]},
   {
     path : "admin" , component : AdminComponent,canActivate:[
       AuthorizationGuard
