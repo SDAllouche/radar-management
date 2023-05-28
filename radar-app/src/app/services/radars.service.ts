@@ -41,4 +41,17 @@ export class RadarsService {
   private getAllRadaras() {
     return this.http.get<Radar[]>("http://localhost:8888/RADAR-SERVICE/rest-api/radars")
   }
+
+  getAllRadars() {
+    return  this.http.get<Radar[]>("http://localhost:8888/RADAR-SERVICE/rest-api/radars")
+  }
+
+  searchRadar(keyword: string) : Observable<Radar[]> {
+    let radarList =this.radars.filter(p=>`${p.maxSpeed}`.includes(keyword));
+    return of(radarList);
+  }
+
+  deleteRadar(id: number) {
+    return this.http.delete<void>("http://localhost:8888/RADAR-SERVICE/rest-api/radars/"+id);
+  }
 }
