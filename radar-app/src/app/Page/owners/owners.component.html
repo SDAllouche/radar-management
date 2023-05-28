@@ -1,31 +1,64 @@
 <div class="container">
-  <table class="table" *ngIf="owners">
-    <thead>
-    <tr>
-      <th>Id</th> <th>Name</th> <th>Mail</th> <th>Birthdate</th> <th>Cars</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let p of owners">
-      <td>{{p.id}}</td>
-      <td>{{p.name}}</td>
-      <td>{{p.mail}}</td>
-      <td>{{p.date | date :'dd/MM/yyyy'}}</td>
-      <td>
-        <button class="btn btn-success">Cars</button>
-      </td>
-      <td>
-        <button class="btn btn-info">
-          <i class="bi bi-pen"></i>
-        </button>
-      </td>
-      <td>
-        <button class="btn btn-danger">
-          <i class="bi bi-trash"></i>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <ng-template  #errorTemplate>
+    <div class="text-danger">{{errorMessage}}</div>
+  </ng-template>
+  <div class="card mt-3" *ngIf="owners; else errorTemplate">
+    <div class="card-header">Owners List</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <form [formGroup]="searchOwnerFormGroup" (ngSubmit)="searchOwner()">
+            <div class="input-group">
+              <label class="input-group-text bg-white">Keyword</label>
+              <input type="text" class="form-control" formControlName="keyword">
+              <button class="btn btn-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-outline-warning rounded-5" *ngIf="authService.hasRole('ADMIN')" (click)="addOwner()">
+            <i class="bi bi-plus-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Id</th> <th>Name</th> <th>Mail</th> <th>Birthdate</th> <th>Cars</th>
+                <th></th><th *ngIf="authService.hasRole('ADMIN')"></th><th *ngIf="authService.hasRole('ADMIN')"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let p of owners">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.mail}}</td>
+                <td>{{p.date | date :'dd/MM/yyyy'}}</td>
+                <td>
+                  <button class="btn btn-success" (click)="getCars(p)">Cars</button>
+                </td>
+                <td *ngIf="authService.hasRole('ADMIN')">
+                  <button class="btn btn-info">
+                    <i class="bi bi-pen"></i>
+                  </button>
+                </td>
+                <td *ngIf="authService.hasRole('ADMIN')">
+                  <button class="btn btn-danger" (click)="deleteOwner(p)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 

@@ -2,6 +2,18 @@
 @import "~node_modules/bootstrap-icons/font/bootstrap-icons.css";
 @import "~node_modules/font-awesome/css/font-awesome.css";
 
+
+.card-header{
+  font-size: 25px;
+}
+
+.btn-outline-warning {
+  width: 95px;
+  height: 35px;
+}
+
+
+
 /*.btn-light{
   width: 110px;
   height: 45px;

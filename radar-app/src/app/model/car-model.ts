@@ -1,4 +1,4 @@
-import {Owners} from "./ownerDTO-model";
+import {Owners} from "./owner-model";
 
 export interface Cars {
   id : number;
@@ -6,5 +6,12 @@ export interface Cars {
   brand : number;
   power :number;
   model :number;
-  owner : Owners;
+  ownerResponseDTO : Owners;
+}
+export interface Car {
+  id : number;
+  registartionNumber : number;
+  brand : number;
+  power :number;
+  model :number;
 }

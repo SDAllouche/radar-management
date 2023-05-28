@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Owners} from "../../model/owner-model";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {AuthenticationService} from "../../services/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-owners',
@@ -8,9 +12,12 @@ import {HttpClient} from "@angular/common/http";
 })
 export class OwnersComponent implements OnInit{
 
-  owners:any;
+  owners!:Owners[];
+  errorMessage!: String;
+  searchOwnerFormGroup!: FormGroup;
 
-  constructor(private http:HttpClient) {
+  constructor(private fb :FormBuilder,public authService : AuthenticationService,
+              private router : Router) {
   }
 
   ngOnInit() {
@@ -21,5 +28,21 @@ export class OwnersComponent implements OnInit{
       error : (err) => {}
     })
   }
+  
 
+  searchOwner() {
+    
+  }
+
+  addOwner() {
+    
+  }
+
+  getCars(p: Owners) {
+    
+  }
+
+  deleteOwner(p: Owners) {
+    
+  }
 }

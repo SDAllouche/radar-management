@@ -1,1 +1,40 @@
-<p>owners-details works!</p>
+<div class="container mt-2" *ngIf="owner">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Owner ID: {{ownerId}}</div>
+        <div class="card-body text-sm-start">
+          <ul class="list-group">
+            <li class="list-group-item">Owner Id : {{owner.id}}</li>
+            <li class="list-group-item">Name : {{owner.name}}</li>
+            <li class="list-group-item">Date : {{owner.date | date : 'dd/MM/yyyy'}}</li>
+            <li class="list-group-item">Email : {{owner.mail}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">All Cars</div>
+        <div class="card-body">
+          <table class="table table-sm">
+            <thead>
+            <tr class="bg-dark text-white">
+              <th>Id</th> <th>Registration</th> <th>Brand</th> <th>Power</th><th>Model</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let p of owner.cars">
+              <td>{{p.id}}</td>
+              <td>{{p.registartionNumber}}</td>
+              <td>{{p.brand}}</td>
+              <td>{{p.power}}</td>
+              <td>{{p.model}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,10 @@ import {AuthorizationGuard} from "./guards/authentication.guard";
 import {NewCarComponent} from "./forms/new-car/new-car.component";
 import {NewRadarComponent} from "./forms/new-radar/new-radar.component";
 import {EditRadarComponent} from "./edit/edit-radar/edit-radar.component";
+import {OwnersDetailsComponent} from "./Page/owners-details/owners-details.component";
+import {CarsDetailsComponent} from "./Page/cars-details/cars-details.component";
+import {ViolationsDetailsComponent} from "./Page/violations-details/violations-details.component";
+import {EditCarComponent} from "./edit/edit-car/edit-car.component";
 
 const routes: Routes = [
   {
@@ -29,7 +33,11 @@ const routes: Routes = [
       {path : "violations" , component : ViolationsComponent},
       {path : "addCar" , component : NewCarComponent},
       {path : "addRadar" , component : NewRadarComponent},
-      {path : "updateRadar/:id" , component : EditRadarComponent}
+      {path : "updateRadar/:id" , component : EditRadarComponent},
+      {path : "updateCar/:id" , component : EditCarComponent},
+      {path : "ownerDetail/:id" , component : OwnersDetailsComponent},
+      {path : "carDetail/:id" , component : CarsDetailsComponent},
+      {path : "violationDetail/:number" , component : ViolationsDetailsComponent}
     ]
   }
 ];

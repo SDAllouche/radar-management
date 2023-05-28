@@ -28,7 +28,6 @@ export class CarsService {
   }
 
   public searchCar(keyword:string): Observable<Cars[]>{
-
     let carList =this.cars.filter(p=>`${p.registartionNumber}`.includes(keyword));
     return of(carList);
   }

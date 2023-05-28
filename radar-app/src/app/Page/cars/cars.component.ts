@@ -54,4 +54,9 @@ export class CarsComponent implements OnInit{
   addCar() {
     this.router.navigateByUrl("/admin/addCar")
   }
+
+  getOwner(id: number) {
+    console.log(id)
+    this.router.navigateByUrl("/admin/ownerDetail/"+id);
+  }
 }

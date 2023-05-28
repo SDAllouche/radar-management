@@ -49,7 +49,7 @@ export class RadarsComponent implements OnInit{
   }
 
   deleteRadar(p: Radar) {
-    let conf =confirm("Do you want to delete this car?");
+    let conf =confirm("Do you want to delete this radar?");
     if(conf==false) return;
     this.radarService.deleteRadar(p.id).subscribe(()=>this.getAllRadars());
   }

@@ -2,53 +2,63 @@
   <ng-template  #errorTemplate>
     <div class="text-danger">{{errorMessage}}</div>
   </ng-template>
-  <div class="add">
-    <h1>Cars List</h1>
-    <button class="btn btn-light rounded-5" (click)="addCar()">
-      <i class="bi bi-plus-lg"></i>
-    </button>
-  </div>
-  <form [formGroup]="searchCarFormGroup" (ngSubmit)="searchCar()">
-    <div class="input-group">
-      <label class="input-group-text bg-white">Registration Number</label>
-      <input type="text" class="form-control" formControlName="keyword">
-      <button class="btn btn-info">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </form>
-  <div class="card" *ngIf="cars; else errorTemplate">
+  <div class="card mt-3" *ngIf="cars; else errorTemplate">
+    <div class="card-header">Cars List</div>
     <div class="card-body">
-      <table class="table">
-        <thead>
-        <tr>
-        <th>Id</th> <th>Registration</th> <th>Brand</th> <th>Power</th><th>Model</th>
-          <th></th><th *ngIf="authService.hasRole('ADMIN')"></th><th *ngIf="authService.hasRole('ADMIN')"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let p of cars">
-          <td>{{p.id}}</td>
-          <td>{{p.registartionNumber}}</td>
-          <td>{{p.brand}}</td>
-          <td>{{p.power}}</td>
-          <td>{{p.model}}</td>
-          <td>
-            <button class="btn btn-success">Owner</button>
-          </td>
-          <td *ngIf="authService.hasRole('ADMIN')">
-            <button class="btn btn-info">
-              <i class="bi bi-pen"></i>
+      <div class="row">
+          <div class="col-md-6">
+            <form [formGroup]="searchCarFormGroup" (ngSubmit)="searchCar()">
+              <div class="input-group">
+                <label class="input-group-text bg-white">Registration Number</label>
+                <input type="text" class="form-control" formControlName="keyword">
+                <button class="btn btn-info">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-outline-warning rounded-5" *ngIf="authService.hasRole('ADMIN')" (click)="addCar()">
+              <i class="bi bi-plus-lg"></i>
             </button>
-          </td>
-          <td *ngIf="authService.hasRole('ADMIN')">
-            <button class="btn btn-danger" (click)="deleteCar(p)">
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+          </div>
+        </div>
+      <div class="row mt-2">
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Id</th> <th>Registration</th> <th>Brand</th> <th>Power</th><th>Model</th>
+                <th></th><th *ngIf="authService.hasRole('ADMIN')"></th><th *ngIf="authService.hasRole('ADMIN')"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let p of cars">
+                <td>{{p.id}}</td>
+                <td>{{p.registartionNumber}}</td>
+                <td>{{p.brand}}</td>
+                <td>{{p.power}}</td>
+                <td>{{p.model}}</td>
+                <td>
+                  <button class="btn btn-success" (click)="getOwner(p.ownerResponseDTO.id)">Owner</button>
+                </td>
+                <td *ngIf="authService.hasRole('ADMIN')">
+                  <button class="btn btn-info">
+                    <i class="bi bi-pen"></i>
+                  </button>
+                </td>
+                <td *ngIf="authService.hasRole('ADMIN')">
+                  <button class="btn btn-danger" (click)="deleteCar(p)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
