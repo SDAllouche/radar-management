@@ -56,7 +56,6 @@ export class CarsComponent implements OnInit{
   }
 
   getOwner(id: number) {
-    console.log(id)
     this.router.navigateByUrl("/admin/ownerDetail/"+id);
   }
 }

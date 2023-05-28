@@ -1,0 +1,28 @@
+<div class="container mt-2">
+  <div class="card col-md-6 offset-3" >
+    <div class="card-header">New Owner</div>
+    <div class="card-body" >
+      <form [formGroup]="newOwnerFormGroup" (ngSubmit)="saveOwner()">
+        <div class="mb-3">
+          <label class="form-label">Name :</label>
+          <input type="text" formControlName="name" class="form-control">
+          <small *ngIf="newOwnerFormGroup.controls['name'].errors && newOwnerFormGroup.controls['name'].touched" class="text-danger">{{getErrorMessage('name',newOwnerFormGroup.controls['name'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date :</label>
+          <input type="date" formControlName="date" class="form-control">
+          <small *ngIf="newOwnerFormGroup.controls['date'].errors && newOwnerFormGroup.controls['date'].touched" class="text-danger">{{getErrorMessage('date',newOwnerFormGroup.controls['date'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email :</label>
+          <input type="text" formControlName="mail" class="form-control">
+          <small *ngIf="newOwnerFormGroup.controls['mail'].errors && newOwnerFormGroup.controls['mail'].touched" class="text-danger">{{getErrorMessage('mail',newOwnerFormGroup.controls['mail'].errors)}}</small>
+        </div>
+        <div class="d-grid">
+          <button [disabled]="!this.newOwnerFormGroup.valid" class="btn btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

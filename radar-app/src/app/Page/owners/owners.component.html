@@ -43,12 +43,12 @@
                   <button class="btn btn-success" (click)="getCars(p)">Cars</button>
                 </td>
                 <td *ngIf="authService.hasRole('ADMIN')">
-                  <button class="btn btn-info">
+                  <button class="btn btn-info" (click)="updateOwner(p)">
                     <i class="bi bi-pen"></i>
                   </button>
                 </td>
                 <td *ngIf="authService.hasRole('ADMIN')">
-                  <button class="btn btn-danger" (click)="deleteOwner(p)">
+                  <button class="btn btn-danger" (click)="deleteOwner(p.id)">
                     <i class="bi bi-trash"></i>
                   </button>
                 </td>

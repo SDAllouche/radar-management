@@ -22,6 +22,9 @@ export class RadarsComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.searchRadarFormGroup=this.fb.group({
+      keyword : this.fb.control(null)
+    })
     this.getAllRadars();
   }
 

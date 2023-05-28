@@ -14,6 +14,8 @@ import {OwnersDetailsComponent} from "./Page/owners-details/owners-details.compo
 import {CarsDetailsComponent} from "./Page/cars-details/cars-details.component";
 import {ViolationsDetailsComponent} from "./Page/violations-details/violations-details.component";
 import {EditCarComponent} from "./edit/edit-car/edit-car.component";
+import {NewOwnerComponent} from "./forms/new-owner/new-owner.component";
+import {EditOwnerComponent} from "./edit/edit-owner/edit-owner.component";
 
 const routes: Routes = [
   {
@@ -34,6 +36,8 @@ const routes: Routes = [
       {path : "addCar" , component : NewCarComponent},
       {path : "addRadar" , component : NewRadarComponent},
       {path : "updateRadar/:id" , component : EditRadarComponent},
+      {path : "addOwner" , component : NewOwnerComponent},
+      {path : "editOwner/:id" , component : EditOwnerComponent},
       {path : "updateCar/:id" , component : EditCarComponent},
       {path : "ownerDetail/:id" , component : OwnersDetailsComponent},
       {path : "carDetail/:id" , component : CarsDetailsComponent},

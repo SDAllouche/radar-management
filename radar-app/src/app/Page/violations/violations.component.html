@@ -1,34 +1,67 @@
 <div class="container">
-  <table class="table" *ngIf="violations">
-    <thead>
-    <tr>
-      <th>Id</th> <th>Radar Id</th> <th>Registration</th> <th>Car Speed</th> <th>Max Speed</th>
-      <th>Date</th><th>Penalty</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let p of violations">
-      <td>{{p.id}}</td>
-      <td>{{p.radarID}}</td>
-      <td>{{p.registrationNumber}}</td>
-      <td>{{p.carSpeed}}</td>
-      <td>{{p.maxSpeed}}</td>
-      <td>{{p.date | date :'yyyy-MM-dd hh:mm:ss'}}</td>
-      <td>{{p.penalty}}</td>
-      <td>
-        <button class="btn btn-success">Detail</button>
-      </td>
-      <td>
-        <button class="btn btn-info">
-          <i class="bi bi-pen"></i>
-        </button>
-      </td>
-      <td>
-        <button class="btn btn-danger">
-          <i class="bi bi-trash"></i>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <ng-template  #errorTemplate>
+    <div class="text-danger">{{errorMessage}}</div>
+  </ng-template>
+  <div class="card mt-3" *ngIf="violations; else errorTemplate">
+    <div class="card-header">Violation List</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <form [formGroup]="searchViolationFormGroup" (ngSubmit)="searchViolation()">
+            <div class="input-group">
+              <label class="input-group-text bg-white">Max Speed</label>
+              <input type="text" class="form-control" formControlName="keyword">
+              <button class="btn btn-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-outline-warning rounded-5" *ngIf="authService.hasRole('ADMIN')" (click)="addViolation()">
+            <i class="bi bi-plus-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Id</th> <th>Radar Id</th> <th>Registration</th> <th>Car Speed</th> <th>Max Speed</th>
+                <th>Date</th><th>Penalty</th><th></th><th *ngIf="authService.hasRole('ADMIN')"></th>
+                <th *ngIf="authService.hasRole('ADMIN')"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let p of violations">
+                <td>{{p.id}}</td>
+                <td>{{p.radarID}}</td>
+                <td>{{p.registrationNumber}}</td>
+                <td>{{p.carSpeed}}</td>
+                <td>{{p.maxSpeed}}</td>
+                <td>{{p.date | date :'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td>{{p.penalty}}</td>
+                <td>
+                  <button class="btn btn-success" (click)="getDetail(p)">Details</button>
+                </td>
+                <td *ngIf="authService.hasRole('ADMIN')">
+                  <button class="btn btn-info" (click)="updateViolation(p.id)">
+                    <i class="bi bi-pen"></i>
+                  </button>
+                </td>
+                <td *ngIf="authService.hasRole('ADMIN')">
+                  <button class="btn btn-danger" (click)="deleteViolation(p)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

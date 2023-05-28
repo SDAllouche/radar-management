@@ -19,6 +19,10 @@ import { NewRadarComponent } from './forms/new-radar/new-radar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditRadarComponent } from './edit/edit-radar/edit-radar.component';
 import { EditCarComponent } from './edit/edit-car/edit-car.component';
+import { EditOwnerComponent } from './edit/edit-owner/edit-owner.component';
+import { NewOwnerComponent } from './forms/new-owner/new-owner.component';
+import { NewViolationComponent } from './forms/new-violation/new-violation.component';
+import { EditViolationComponent } from './edit/edit-violation/edit-violation.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { EditCarComponent } from './edit/edit-car/edit-car.component';
     NewRadarComponent,
     EditRadarComponent,
     EditCarComponent,
+    EditOwnerComponent,
+    NewOwnerComponent,
+    NewViolationComponent,
+    EditViolationComponent,
   ],
   imports: [
     BrowserModule,
