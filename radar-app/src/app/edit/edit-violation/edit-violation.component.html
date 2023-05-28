@@ -1,0 +1,39 @@
+<div class="container mt-2">
+  <div class="card col-md-6 offset-3" >
+    <div class="card-header">Update Violation</div>
+    <div class="card-body" >
+      <form [formGroup]="updateViolationFormGroup" (ngSubmit)="updateViolation()">
+        <div class="mb-3">
+          <label class="form-label">Id : {{violationId}}</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Radar Id :</label>
+          <input type="text" formControlName="radarID" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Registration Number :</label>
+          <input type="text" formControlName="registrationNumber" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Car Speed :</label>
+          <input type="text" formControlName="carSpeed" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Max Speed :</label>
+          <input type="text" formControlName="maxSpeed" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date :</label>
+          <input type="date" formControlName="date" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Penalty :</label>
+          <input type="text" formControlName="penalty" class="form-control">
+        </div>
+        <div class="d-grid">
+          <button [disabled]="!this.updateViolationFormGroup.valid" class="btn btn btn-success">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

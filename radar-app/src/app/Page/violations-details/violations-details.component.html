@@ -1,1 +1,52 @@
-<p>violations-details works!</p>
+<div class="container mt-2" *ngIf="violation">
+  <div class="card">
+    <div class="card-header">Violation ID: {{violationId}}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Car Speed : {{violation.carSpeed}}</p>
+        </div>
+        <div class="col-md-6">
+          <p>Date : {{violation.date | date : 'dd/MM/yyyy' }}</p>
+        </div>
+        <div class="col-md-6">
+          <p>Penalty : {{violation.penalty}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" *ngIf="car">
+          <div class="card">
+            <div class="card-header">Car ID: {{car.id}}</div>
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item">Car Id : {{car.id}}</li>
+                <li class="list-group-item">RegistartionNumber : {{car.registartionNumber}}</li>
+                <li class="list-group-item">Date : {{car.brand}}</li>
+                <li class="list-group-item">Model : {{car.model}}</li>
+                <li class="list-group-item">Power : {{car.power}}</li>
+                <li class="list-group-item">Owner Name : {{car.ownerResponseDTO.name}}</li>
+                <li class="list-group-item">Owner Birthdau : {{car.ownerResponseDTO.date | date: 'dd/MM/yyyy'}}</li>
+                <li class="list-group-item">Owner Email : {{car.ownerResponseDTO.mail}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" *ngIf="radar">
+          <div class="card">
+            <div class="card-header">Radar ID: {{violation.radarID}}</div>
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item">Radar Id : {{radar.id}}</li>
+                <li class="list-group-item">Max Speed : {{radar.maxSpeed}}</li>
+                <li class="list-group-item">Longitude : {{radar.longitude}}</li>
+                <li class="list-group-item">Latitude : {{radar.latitude}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

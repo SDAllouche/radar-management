@@ -16,6 +16,8 @@ import {ViolationsDetailsComponent} from "./Page/violations-details/violations-d
 import {EditCarComponent} from "./edit/edit-car/edit-car.component";
 import {NewOwnerComponent} from "./forms/new-owner/new-owner.component";
 import {EditOwnerComponent} from "./edit/edit-owner/edit-owner.component";
+import {EditViolationComponent} from "./edit/edit-violation/edit-violation.component";
+import {NewViolationComponent} from "./forms/new-violation/new-violation.component";
 
 const routes: Routes = [
   {
@@ -40,8 +42,10 @@ const routes: Routes = [
       {path : "editOwner/:id" , component : EditOwnerComponent},
       {path : "updateCar/:id" , component : EditCarComponent},
       {path : "ownerDetail/:id" , component : OwnersDetailsComponent},
+      {path : "editViolation/:id" , component : EditViolationComponent},
+      {path : "addViolation" , component : NewViolationComponent},
       {path : "carDetail/:id" , component : CarsDetailsComponent},
-      {path : "violationDetail/:number" , component : ViolationsDetailsComponent}
+      {path : "violationDetail/:id" , component : ViolationsDetailsComponent}
     ]
   }
 ];

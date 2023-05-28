@@ -47,11 +47,4 @@ export class EditRadarComponent implements OnInit{
     });
   }
 
-  getErrorMessage(field: string, error: any) {
-    if(error['required']){
-      return field +" is Required";
-    } else if(error['minlength']){
-      return field+" should have at least "+error['minlength']['requiredLength']+" Characters";
-    } else return "";
-  }
 }

@@ -13,7 +13,7 @@ export class RadarsService {
   radars! : Radar[];
 
   constructor(private route: Router,private http : HttpClient) {
-    this.getAllRadaras().subscribe({
+    this.getAllRadars().subscribe({
       next: data=>{
         this.radars = data;
       }
@@ -36,10 +36,6 @@ export class RadarsService {
     this.http.put<RadarRequest>("http://localhost:8888/RADAR-SERVICE/rest-api/radars/"+id,radar)
     this.route.navigateByUrl("/admin/radars")
     return of(radar);
-  }
-
-  private getAllRadaras() {
-    return this.http.get<Radar[]>("http://localhost:8888/RADAR-SERVICE/rest-api/radars")
   }
 
   getAllRadars() {

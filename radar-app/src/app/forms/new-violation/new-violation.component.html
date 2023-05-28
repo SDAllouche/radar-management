@@ -1,1 +1,43 @@
-<p>new-violation works!</p>
+<div class="container mt-2">
+  <div class="card col-md-6 offset-3" >
+    <div class="card-header">New Violation</div>
+    <div class="card-body" >
+      <form [formGroup]="newViolationFormGroup" (ngSubmit)="saveViolation()">
+        <div class="mb-3">
+          <label class="form-label">Radar Id :</label>
+          <input type="text" formControlName="radarID" class="form-control">
+          <small *ngIf="newViolationFormGroup.controls['radarID'].errors && newViolationFormGroup.controls['radarID'].touched" class="text-danger">{{getErrorMessage('radarID',newViolationFormGroup.controls['radarID'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Max Speed :</label>
+          <input type="text" formControlName="maxSpeed" class="form-control">
+          <small *ngIf="newViolationFormGroup.controls['maxSpeed'].errors && newViolationFormGroup.controls['maxSpeed'].touched" class="text-danger">{{getErrorMessage('maxSpeed',newViolationFormGroup.controls['maxSpeed'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Registration Number :</label>
+          <input type="text" formControlName="registrationNumber" class="form-control">
+          <small *ngIf="newViolationFormGroup.controls['registrationNumber'].errors && newViolationFormGroup.controls['registrationNumber'].touched" class="text-danger">{{getErrorMessage('registrationNumber',newViolationFormGroup.controls['registrationNumber'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Car Speed :</label>
+          <input type="text" formControlName="carSpeed" class="form-control">
+          <small *ngIf="newViolationFormGroup.controls['carSpeed'].errors && newViolationFormGroup.controls['carSpeed'].touched" class="text-danger">{{getErrorMessage('carSpeed',newViolationFormGroup.controls['carSpeed'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">date :</label>
+          <input type="date" formControlName="date" class="form-control">
+          <small *ngIf="newViolationFormGroup.controls['date'].errors && newViolationFormGroup.controls['date'].touched" class="text-danger">{{getErrorMessage('date',newViolationFormGroup.controls['date'].errors)}}</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Penalty :</label>
+          <input type="text" formControlName="penalty" class="form-control">
+          <small *ngIf="newViolationFormGroup.controls['penalty'].errors && newViolationFormGroup.controls['penalty'].touched" class="text-danger">{{getErrorMessage('penalty',newViolationFormGroup.controls['penalty'].errors)}}</small>
+        </div>
+        <div class="d-grid">
+          <button [disabled]="!this.newViolationFormGroup.valid" class="btn btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

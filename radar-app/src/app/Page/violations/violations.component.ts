@@ -43,7 +43,7 @@ export class ViolationsComponent implements OnInit{
     let keyword=this.searchViolationFormGroup.value.keyword;
     this.violationService.searchRadar(keyword).subscribe({
       next :data=>{
-        this.radars=data
+        this.violations=data
       }
     })
   }
@@ -63,6 +63,6 @@ export class ViolationsComponent implements OnInit{
   }
 
   getDetail(p: Violation) {
-
+    this.route.navigateByUrl("/admin/violationDetail/"+p.id)
   }
 }

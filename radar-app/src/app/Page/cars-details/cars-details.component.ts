@@ -17,15 +17,14 @@ export class CarsDetailsComponent implements OnInit{
   }
   ngOnInit(): void {
     this.ownerId=this.activeRoute.snapshot.params['id'];
-    this.getRadar().subscribe({
+    this.getOwner().subscribe({
       next :data=>{
         this.owner=data
-        console.log(this.owner.cars)
       }
     })
   }
 
-  getRadar(): Observable<Owner> {
+  getOwner(): Observable<Owner> {
     return  this.http.get<Owner>("http://localhost:8888/REGISTRATION-SERVICE/rest-api/cars/owners/"+this.ownerId);
   }
 
