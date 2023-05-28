@@ -55,14 +55,14 @@ The aim of this project is to create a distributed system based on micro-service
     <th>SOAP</th>
    </tr>
   <tr>
-    <td><img src="Screenshots/7.png"/></td>
-    <td><img src="Screenshots/24.png"/></td>
+    <td><img src="Screenshots/27.png"/></td>
+    <td><img src="Screenshots/26.png"/></td>
   </tr>
     <th>GraphQL</th>
     <th>GRPC</th>
   <tr>
-    <td><img src="Screenshots/7.png"/></td>
-    <td><img src="Screenshots/24.png"/></td>
+    <td><img src="Screenshots/25.png"/></td>
+    <td><img src="Screenshots/28.png"/></td>
   </tr>
 </table>
 
@@ -73,14 +73,14 @@ The aim of this project is to create a distributed system based on micro-service
     <th>SOAP</th>
    </tr>
   <tr>
-    <td><img src="Screenshots/7.png"/></td>
+    <td><img src="Screenshots/33.png"/></td>
     <td><img src="Screenshots/24.png"/></td>
   </tr>
     <th>GraphQL</th>
     <th>GRPC</th>
   <tr>
-    <td><img src="Screenshots/7.png"/></td>
-    <td><img src="Screenshots/24.png"/></td>
+    <td><img src="Screenshots/31.png"/></td>
+    <td><img src="Screenshots/35.png"/></td>
   </tr>
 </table>
 
@@ -91,14 +91,14 @@ The aim of this project is to create a distributed system based on micro-service
     <th>SOAP</th>
    </tr>
   <tr>
-    <td><img src="Screenshots/7.png"/></td>
-    <td><img src="Screenshots/24.png"/></td>
+    <td><img src="Screenshots/34.png"/></td>
+    <td><img src="Screenshots/36.png"/></td>
   </tr>
     <th>GraphQL</th>
     <th>GRPC</th>
   <tr>
-    <td><img src="Screenshots/7.png"/></td>
-    <td><img src="Screenshots/24.png"/></td>
+    <td><img src="Screenshots/32.png"/></td>
+    <td><img src="Screenshots/30.png"/></td>
   </tr>
 </table>
 
@@ -110,4 +110,44 @@ The aim of this project is to create a distributed system based on micro-service
     <td><img src="Screenshots/24.png"/></td>
   </tr>
 </table>
+
+## Web Application
+<table align="center">
+  <tr>
+    <th>Authentication</th>
+    <th>Home</th>
+   </tr>
+  <tr>
+    <td><img src="Screenshots/9.png"/></td>
+    <td><img src="Screenshots/10.png"/></td>
+  </tr>
+  <tr>
+    <th>Table</th>
+    <th>Search</th>
+  </tr>  
+  <tr>
+    <td><img src="Screenshots/19.png"/></td>
+    <td><img src="Screenshots/23.png"/></td>
+  </tr>
+  <tr>
+    <th>Owner Detail</th>
+    <th>Violation Detail</th>
+  </tr>  
+  <tr>
+    <td><img src="Screenshots/15.png"/></td>
+    <td><img src="Screenshots/22.png"/></td>
+  </tr>
+  <tr>
+    <th>Add</th>
+    <th>Update</th>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/17.png"/></td>
+    <td><img src="Screenshots/18.png"/></td>
+  </tr>
+</table>
+
+
+## License
+[MIT LICENSE](LICENSE)
 
